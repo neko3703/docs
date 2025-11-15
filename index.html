@@ -30,21 +30,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Default Dark Mode Colors */
-            --bg-primary: #1D1D1D;
-            --bg-secondary: #1E293B;
-            --text-primary: #E2E8F0;
-            --text-secondary: #94A3B8;
-            --border-color: #334155;
-            --code-bg: #000000;
+            /* NEW Modern Dark Mode Colors */
+            --bg-primary: #111827; /* Tailwind gray-900 */
+            --bg-secondary: #1F2937; /* Tailwind gray-800 */
+            --text-primary: #F9FAFB; /* Tailwind gray-50 */
+            --text-secondary: #9CA3AF; /* Tailwind gray-400 */
+            --border-color: #374151; /* Tailwind gray-700 */
+            --code-bg: #000000; /* Pure black for code */
 
-            /* Default Theme Color (Purple) */
+            /* Default Theme Color (Purple) - Unchanged */
             --theme-primary: #8B5CF6; /* Purple */
             --theme-primary-rgb: 139, 92, 246; /* RGB values for rgba() */
             --theme-hover: #7C3AED;
             --theme-hover-rgb: 124, 58, 237;
             --theme-border: #7F00FF;
-            --theme-active-sidebar: #7F00FF;
+            /* --theme-active-sidebar: #7F00FF; -- This is now redundant, will use --theme-primary */
         }
 
         body {
@@ -68,7 +68,9 @@
             background-color: var(--bg-secondary);
             border-radius: 0.5rem;
             padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            /* NEW subtle border and shadow */
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         .code-block {
             background-color: var(--code-bg);
@@ -127,6 +129,7 @@
                 width: 1/5; /* Keep desktop width */
                 transform: translateX(0); /* Always visible */
                 border-right: 1px solid var(--border-color);
+                background-color: var(--bg-primary); /* Match body bg */
             }
         }
 
@@ -137,23 +140,28 @@
             transition: color 0.2s ease, background-color 0.2s ease, border-left 0.2s ease;
             border-radius: 0.25rem;
             margin-bottom: 0; /* Reduced spacing */
+            border-left: 3px solid transparent; /* Placeholder for active border */
+            padding-left: calc(0.75rem - 3px);
         }
         .sidebar-link:hover {
-            color: var(--text-primary);
-            background-color: var(--border-color);
+            /* NEW elegant hover */
+            color: var(--theme-primary);
+            background-color: rgba(var(--theme-primary-rgb), 0.1);
         }
         .sidebar-link.active {
-            color: var(--theme-active-sidebar);
-            background-color: transparent;
+            /* NEW elegant active state */
+            color: var(--theme-primary);
+            background-color: rgba(var(--theme-primary-rgb), 0.15);
             font-weight: 700; /* Made bolder */
-            border-left: 3px solid var(--theme-active-sidebar);
+            border-left: 3px solid var(--theme-primary);
             padding-left: calc(0.75rem - 3px);
         }
         .sidebar-link.sidebar-parent-active {
-            background-color: var(--border-color);
-            color: var(--text-primary);
+            /* NEW elegant parent active state */
+            background-color: rgba(var(--theme-primary-rgb), 0.1);
+            color: var(--theme-primary);
             font-weight: 700; /* Made bolder */
-            border-left: 3px solid var(--theme-active-sidebar);
+            border-left: 3px solid var(--theme-primary);
             padding-left: calc(0.75rem - 3px);
         }
         .sidebar ul ul {
@@ -179,36 +187,46 @@
         }
 
         .main-content-area {
-            padding: 1.5rem;
+            padding: 0; /* Remove padding, header will handle it */
             background-color: var(--bg-primary);
             position: relative; /* Needed for absolute positioning of progress bar */
         }
         @media (min-width: 1024px) {
             .main-content-area {
-                padding: 2.5rem;
+                padding: 0;
             }
         }
         #scrollToTopBtn {
-            display: none;
+            /* NEW circular button style */
+            display: flex; /* Use flex to center icon */
+            align-items: center;
+            justify-content: center;
             position: fixed;
             bottom: 20px;
             right: 30px;
             z-index: 99;
-            border: 1px solid var(--theme-border);
+            border: none;
             outline: none;
-            background-color: rgba(127, 0, 255, 0.2);
-            color: var(--theme-border);
+            background-color: var(--theme-primary);
+            color: white;
             cursor: pointer;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s ease;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%; /* Circular */
+            font-size: 20px; /* Icon size */
+            box-shadow: 0 4px 12px rgba(var(--theme-primary-rgb), 0.3);
+            /* NEW fade in/out animation */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+        }
+        #scrollToTopBtn.show {
+            /* NEW class to show button */
+            opacity: 1;
+            transform: translateY(0);
         }
         #scrollToTopBtn:hover {
-            background-color: var(--theme-border);
-            color: white;
+            background-color: var(--theme-hover);
             transform: translateY(-2px);
         }
         #scrollToTopBtn:active {
@@ -221,7 +239,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            /* NEW backdrop blur effect */
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -237,18 +257,23 @@
             max-width: 600px;
             padding: 1.5rem;
             position: relative;
+            border: 1px solid var(--border-color); /* NEW border */
         }
 
         .search-input-modal {
             width: 100%;
             padding: 0.75rem 1rem;
             border-radius: 0.375rem;
-            background-color: var(--code-bg);
+            background-color: var(--bg-primary); /* NEW bg */
             color: var(--text-primary);
             border: 1px solid var(--border-color);
             outline: none;
             font-size: 1.125rem;
             margin-bottom: 1rem;
+        }
+        .search-input-modal:focus {
+             border-color: var(--theme-primary);
+             box-shadow: 0 0 0 2px rgba(var(--theme-primary-rgb), 0.3);
         }
 
         .search-results-list {
@@ -317,6 +342,7 @@
             right: 0;
             top: 100%;
             margin-top: 0.5rem;
+            border: 1px solid var(--border-color); /* NEW border */
         }
 
         .settings-dropdown-content.show {
@@ -354,6 +380,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px); /* NEW blur effect */
             z-index: 40; /* Below sidebar, above content */
             display: none; /* Hidden by default */
         }
@@ -367,8 +394,9 @@
             border-radius: 0.75rem; /* More rounded corners */
             margin-bottom: 1rem; /* More spacing between cards */
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-            border: 1px solid var(--border-color); /* Light border */
+            /* NEW card styling */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
         }
         .faq-item:hover {
@@ -396,7 +424,8 @@
             color: var(--theme-primary);
         }
         .faq-question.open {
-            background-color: var(--border-color); /* Slightly different background when open */
+            /* NEW elegant open state */
+            background-color: rgba(var(--theme-primary-rgb), 0.1);
             color: var(--theme-primary); /* Keep theme color when open */
         }
 
@@ -426,13 +455,49 @@
             position: fixed; /* Changed from sticky to fixed */
             top: 0;
             left: 0;
-            height: 8px; /* Increased thickness of the bar */
+            height: 6px; /* NEW thinner bar */
             background-color: var(--theme-primary); /* Use theme color */
             width: 100vw; /* Ensure it spans the full viewport width */
             z-index: 9999; /* Increased z-index to be on top of everything */
             transition: width 0.1s linear; /* Smooth fill */
             border-radius: 0 2px 2px 0; /* Rounded right end */
+            /* NEW glow effect */
+            box-shadow: 0 0 10px rgba(var(--theme-primary-rgb), 0.5);
         }
+
+        /* NEW Updated Changelog Tag Styles */
+        .changelog-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.125rem 0.625rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            margin-bottom: 0.5rem;
+            margin-top: 0.25rem;
+            line-height: 1.25rem;
+        }
+        .changelog-tag-new {
+            background-color: rgba(74, 222, 128, 0.1); /* bg-green-400/10 */
+            color: #86efac; /* text-green-300 */
+            border: 1px solid rgba(74, 222, 128, 0.2); /* border-green-400/20 */
+        }
+        .changelog-tag-new svg { color: #86efac; } /* text-green-300 */
+        
+        .changelog-tag-improvement {
+            background-color: rgba(96, 165, 250, 0.1); /* bg-blue-400/10 */
+            color: #93c5fd; /* text-blue-300 */
+            border: 1px solid rgba(96, 165, 250, 0.2); /* border-blue-400/20 */
+        }
+        .changelog-tag-improvement svg { color: #93c5fd; } /* text-blue-300 */
+
+        .changelog-tag-security {
+            background-color: rgba(248, 113, 113, 0.1); /* bg-red-400/10 */
+            color: #fca5a5; /* text-red-300 */
+            border: 1px solid rgba(248, 113, 113, 0.2); /* border-red-400/20 */
+        }
+        .changelog-tag-security svg { color: #fca5a5; } /* text-red-300 */
+
     </style>
 </head>
 <body class="antialiased leading-normal">
@@ -511,14 +576,17 @@
 
         <!-- Main Content Area -->
         <main class="w-full lg:w-4/5 main-content-area flex flex-col flex-grow">
-            <!-- Header for settings button and hamburger icon -->
-            <header class="flex justify-between items-center p-4">
+            <!-- NEW Sticky Header with backdrop blur -->
+            <header class="flex items-center p-4 sticky top-0 z-40 bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border-color)] lg:border-none">
                 <!-- Hamburger Icon (visible on mobile, hidden on desktop) -->
                 <button id="hamburger-btn" class="lg:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-full hover:bg-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
 
-                <div class="settings-container ml-auto">
+                <!-- Spacer (pushes settings to the right on ALL screen sizes) -->
+                <div class="flex-grow"></div>
+
+                <div class="settings-container">
                     <button id="settings-button" class="settings-button">
                         SETTINGS
                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -539,12 +607,13 @@
             </header>
 
             <!-- Dynamic Content Area -->
-            <div id="content-display" class="flex-grow min-h-[60vh] p-6 overflow-y-auto">
+            <div id="content-display" class="flex-grow min-h-[60vh] p-6 lg:p-10 overflow-y-auto">
                 <!-- Content will be loaded here dynamically by JavaScript -->
             </div>
 
             <!-- Footer -->
-            <footer class="text-center text-gray-500 mt-10 pt-6 border-t border-gray-700">
+            <footer class="text-center text-gray-500 mt-10 p-6 border-t border-gray-700">
+                <!-- Footer content can go here -->
             </footer>
         </main>
     </div>
@@ -560,7 +629,12 @@
     </div>
 
     <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" title="Go to top">↑</button>
+    <button id="scrollToTopBtn" title="Go to top">
+        <!-- NEW SVG Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
 
     <script>
         // Define all documentation content as HTML strings
@@ -681,14 +755,14 @@
                 </p>
                 <ul class="list-disc list-inside text-gray-300 space-y-2">
                     <li><strong>Moderation:</strong> Commands to help you manage and moderate your server.</li>
-                    <li><strong>Utility:</b> General utility commands for server and user information, giveaways, and more.</li>
+                    <li><strong>Utility:</strong> General utility commands for server and user information, giveaways, and more.</li>
                     <li><strong>Fun:</strong> Engaging commands for entertainment and interaction.</li>
                     <li><strong>GIFs:</strong> Commands to send various anime-themed GIFs.</li>
                     <li><strong>Image:</strong> Commands related to images, including avatars and random animal pictures.</li>
                     <li><strong>Server Management:</strong> Tools for managing channels, roles, and user nicknames.</li>
                     <li><strong>Support:</strong> Commands to get help or report issues.</li>
                     <li><strong>Text Tools:</strong> Utilities for text manipulation like translation and anonymous confessions.</li>
-                    <li><strong>Security:</b> Commands for security-related checks.</li>
+                    <li><strong>Security:</strong> Commands for security-related checks.</li>
                     <li><strong>Tools:</strong> General purpose tools like password generation.</li>
                     <li><strong>Other Commands:</strong> Miscellaneous commands.</li>
                     <li><strong>Hire Neko:</strong> Information on hiring the developer.</li>
@@ -996,7 +1070,7 @@
                 <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
                     <li><strong>Join our Discord Server:</strong> The fastest way to get help is by joining our official <a href="https://nekocode.in/discord" target="_blank" class="text-blue-400 hover:underline">Support Server</a>. Here, you can ask questions in dedicated support channels, report bugs, and interact directly with the Neko Code team and other experienced users.</li>
                     <li><strong>Check the FAQ:</strong> Before asking a question, please refer to our Frequently Asked Questions (FAQ) section (if available) on the Discord server or within the documentation. Many common issues are addressed there.</li>
-                    <li><strong>Use Command Help:</b> For specific command usage, remember you can always type <code class="code-block inline-block px-2 py-1 text-sm">/help [command_name]</code> in your Discord server to get detailed information about any command.</li>
+                    <li><strong>Use Command Help:</strong> For specific command usage, remember you can always type <code class="code-block inline-block px-2 py-1 text-sm">/help [command_name]</code> in your Discord server to get detailed information about any command.</li>
                     <li><strong>Report an Issue:</strong> If you find a bug or an unexpected behavior, please use the <code class="code-block inline-block px-2 py-1 text-sm">/report-issue</code> slash command in your server or report it directly in the support server's bug report channel. Provide as much detail as possible, including steps to reproduce the issue.</li>
                     <li><strong>Suggest Features:</strong> We love hearing your ideas! Use the <code class="code-block inline-block px-2 py-1 text-sm">/suggest</code> slash command or the dedicated suggestion channel in our support server to propose new features or improvements.</li>
                 </ul>
@@ -1337,140 +1411,445 @@
                     Stay up-to-date with the latest changes, features, and bug fixes in Neko Code.
                 </p>
 
-                <div class="space-y-6">
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.0 - November 14, 2025 (11:19 AM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li>
-                                <strong class="text-yellow-400">NEW: Chaotic Achievement System!</strong>
-                                <p class="mt-1">We've rolled out a brand-new, totally unnecessary **Achievement System!** Every time you chat, spam symbols, or just exist suspiciously, you can now unlock funny and sarcastic achievements.</p>
-                                <ul class="list-disc list-inside ml-4 mt-2">
-                                    <li>Certified Clueless — You're lost… I'm lost… we're all lost.</li>
-                                    <li>Master of Suspense — A master of suspense.</li>
-                                    <li>Apex of Disappointment — You have reached the apex of disappointment.</li>
-                                    <li>Curious George — So many questions… so little patience.</li>
-                                    <li>Emoji Scholar — Communicating in pure hieroglyphics.</li>
-                                </ul>
-                                <p class="mt-2 italic text-sm">Achievements trigger automatically. New ones will be added regularly, so keep talking… or don’t. The bot will judge you anyway.</p>
-                         </ul>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.6.0 - July 22, 2025 (10:37 PM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>New Feature: Customizable Welcome & Goodbye Messages:</strong> You can now set up custom welcomea and goodbye messages for members joining and leaving your server using the <code class="code-block inline-block px-2 py-1 text-sm">/setwelcome</code> and <code class="code-block inline-block px-2 py-1 text-sm">/setgoodbye</code> commands respectively.</li>
-                            <li><strong>Example:</strong> Use <code class="code-block inline-block px-2 py-1 text-sm">/setwelcome <message> – Set a custom message for when someone joins the server</code> to set a welcome message.</li>
-                            <li><strong>Example:</strong> Use <code class="code-block inline-block px-2 py-1 text-sm">/setgoodbye <message> – Set a custom message for when someone leaves the server</code> to set a welcome message.</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.5.1 - July 20, 2025 (2:36 PM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>Ticket System Just Got a Major Upgrade!:</strong> We have now updated our support ticket system with a ton of powerful new features to streamline mod workflows and improve user experience:</li>
-                            <li><strong>What's new?</strong>
-                                <ul class="list-disc list-inside ml-5 text-gray-300 space-y-1">
-                                <li><code class="code-block inline-block px-2 py-1 text-sm">Claim Ticket Button: Staff can now claim tickets to avoid overlap. Once claimed, the ticket shows who’s handling it — keeping things clean and organized.</code></li>
-                                <li><code class="code-block inline-block px-2 py-1 text-sm">Auto Logs in #ticket-logs: When a ticket is created, it is now automatically logged in a dedicated log channel — created on the fly if needed!</code></li>
-                                <li><code class="code-block inline-block px-2 py-1 text-sm">No Ping, Still Notified: Mods are alerted without tagging them in the ticket embed — fewer pings, same awareness.</code></li>
-                                <li><code class="code-block inline-block px-2 py-1 text-sm">Secure Log Access: Only staff with Manage Messages permission can view the #ticket-logs channel.</code></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    </div>
+                <!-- NEW Tag Styles are in the main <head> style block -->
 
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.5.0 - July 13, 2025 (3:09 PM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>New Feature: Ticketing System:</strong> We have now launched ticketing system to the bot. You can now create tickets in your server to get quick resolutions for the issues you have.</li>
-                            <li><strong>Setup:</strong>
-                                <ul class="list-disc list-inside ml-5 text-gray-300 space-y-1">
-                                <li><code class="code-block inline-block px-2 py-1 text-sm">/setup-tickets channel:#support</code></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    </div>
+                <div class="space-y-8">
                     
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.4.0 - July 12, 2025 (2:16 PM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>New Feature: AI Assistant Support via <code class="code-block inline-block px-2 py-1 text-sm">$helpme</code>:</strong> You can now ask Neko Code questions in plain language using <code class="code-block inline-block px-2 py-1 text-sm">$helpme</code>. The bot will respond directly using your documentation — in its own voice — and share the most relevant feature link.</li>
-                            <li><strong>Examples:</strong>
-                                <ul class="list-disc list-inside ml-5 text-gray-300 space-y-1">
-                                <li><code class="code-block inline-block px-2 py-1 text-sm">$helpme how to set up welcome messages</code></li>
-                                <li><code class="code-block inline-block px-2 py-1 text-sm">$helpme why isn’t the bot replying</code></li>
-                                <li><code class="code-block inline-block px-2 py-1 text-sm">$helpme ticket commands not working</code></li>
+                    <!-- Release Card: v2.7.0 -->
+                    <div class="card border-l-4 border-[var(--theme-primary)]">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.0</h3>
+                        <span class="text-sm text-gray-400">November 14, 2025 (11:19 AM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-new">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M4 14a1 1 0 0 1-.48-1.78l10-10a1 1 0 0 1 1.41.05l7 7a1 1 0 0 1 .16 1.39l-10 10a1 1 0 0 1-1.5-.15l-7-7a1 1 0 0 1 .15-1.49l7-7"/></svg>
+                                NEW FEATURE
+                            </div>
+                            <p class="text-gray-300 mt-1">
+                                <strong class="text-yellow-400">Chaotic Achievement System!</strong>
+                                <br>
+                                We've rolled out a brand-new, totally unnecessary **Achievement System!** Every time you chat, spam symbols, or just exist suspiciously, you can now unlock funny and sarcastic achievements.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-400 ml-4 mt-2 text-sm">
+                                <li>Certified Clueless — You're lost… I'm lost… we're all lost.</li>
+                                <li>Master of Suspense — A master of suspense.</li>
+                                <li>Apex of Disappointment — You have reached the apex of disappointment.</li>
+                                <li>Curious George — So many questions… so little patience.</li>
+                                <li>Emoji Scholar — Communicating in pure hieroglyphics.</li>
                             </ul>
-                        </li>
-                        <li><strong>Note:</strong> This is powered by AI and may sometimes return incomplete or incorrect answers. For guaranteed accuracy, please refer to <a href="https://docs.nekocode.in/" class="text-blue-400 underline">this documentation</a> or use the <code class="code-block inline-block px-2 py-1 text-sm">/help</code> command.</li>
-                    </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.3.0 - July 6, 2025 (9:30 PM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>New Feature: Alt Account Detection System:</strong> Introduced a risk-based alt detection system to protect your server from suspicious accounts. Accounts are scored (0-100) based on factors like account age, profile picture, suspicious usernames, discriminator, mutual servers, and role assignment.</li>
-                            <li><strong>Risk Levels & Actions:</strong>
-                                <ul>
-                                    <li>30–59 (Suspicious): Logged for mod review.</li>
-                                    <li>60–79 (Likely Alt): Logged + DM warning to user.</li>
-                                    <li>80+ (High-Risk Alt): Logged + User timed out for 5 minutes.</li>
-                                </ul>
-                            </li>
-                            <li><strong>Logging:</strong> All detections are logged in a private <code class="code-block inline-block px-2 py-1 text-sm">#alt-logs</code> channel (auto-created if missing).</li>
-                        </ul>
+                            <p class="mt-2 italic text-sm text-gray-500">Achievements trigger automatically. New ones will be added regularly, so keep talking… or don’t. The bot will judge you anyway.</p>
+                        </div>
                     </div>
 
-                    <!-- Latest Update: Ghost Ping Detector -->
+                    <!-- Release Card: v2.6.0 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.2.1 - July 6, 2025 (8:23 PM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>New Feature: Ghost Ping Detector:</strong> Implemented a system to detect and log "ghost pings" (mentions followed by quick message deletion).</li>
-                            <li><strong>Logging:</strong> Detected ghost pings are logged in a dedicated <code class="code-block inline-block px-2 py-1 text-sm">ghost-ping-logs</code> channel (auto-created if missing).</li>
-                            <li><strong>Logged Information:</strong> Includes user who sent ping, pinged user/role, original message content, channel, and timestamp.</li>
-                            <li><strong>Important Note:</strong> Requires "Send Messages" and "Create Channels" permissions. Channel name must contain "ghost-ping-logs".</li>
-                        </ul>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.6.0</h3>
+                        <span class="text-sm text-gray-400">July 22, 2025 (10:37 PM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-new">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M4 14a1 1 0 0 1-.48-1.78l10-10a1 1 0 0 1 1.41.05l7 7a1 1 0 0 1 .16 1.39l-10 10a1 1 0 0 1-1.5-.15l-7-7a1 1 0 0 1 .15-1.49l7-7"/></svg>
+                                NEW FEATURE
+                            </div>
+                            <p class="text-gray-300 mt-1">
+                                <strong>Customizable Welcome & Goodbye Messages:</strong> You can now set up custom welcome and goodbye messages for members joining and leaving your server using <code class="code-block inline-block px-2 py-1 text-sm">/setwelcome</code> and <code class="code-block inline-block px-2 py-1 text-sm">/setgoodbye</code>.
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Previous Update: Economy System & UX -->
+                    <!-- Release Card: v2.5.1 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.2.0 - June 27, 2025 (1:51 PM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>New Feature: Economy System:</strong> Launched a comprehensive in-bot economy with commands like <code class="code-block inline-block px-2 py-1 text-sm">!balance</code>, <code class="code-block inline-block px-2 py-1 text-sm">!daily</code>, <code class="code-block inline-block px-2 py-1 text-sm">!beg</code>, <code class="code-block inline-block px-2 py-1 text-sm">!pay</code>, <code class="code-block inline-block px-2 py-1 text-sm">!buy</code>, <code class="code-block inline-block px-2 py-1 text-sm">!sell</code>, <code class="code-block inline-block px-2 py-1 text-sm">!use</code>, <code class="code-block inline-block px-2 py-1 text-sm">!inventory</code>, <code class="code-block inline-block px-2 py-1 text-sm">!shop</code>, and <code class="code-block inline-block px-2 py-1 text-sm">!leaderboard</code>.</li>
-                            <li><strong>Improved User Experience (UX):</strong> Enhanced existing commands with cleaner outputs, improved layouts, and more intuitive interactions.</li>
-                        </ul>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.5.1</h3>
+                        <span class="text-sm text-gray-400">July 20, 2025 (2:36 PM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-improvement">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                                IMPROVEMENT
+                            </div>
+                            <p class="text-gray-300 mt-1">
+                                <strong>Ticket System Upgrade:</strong> Our support ticket system received powerful new features to streamline mod workflows, including ticket claiming, auto-logging, and no-ping mod alerts.
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Previous Update: Web Search Integration -->
+                    <!-- Release Card: v2.5.0 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.1.1 - June 21, 2025 (9:39 PM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>New Feature: Web Search Integration:</strong> Added the <code class="code-block inline-block px-2 py-1 text-sm">/google</code> command to perform Google searches directly within Discord.</li>
-                            <li><strong>Enhanced <code class="code-block inline-block px-2 py-1 text-sm">/google</code> Command:</strong> Introduced <code class="code-block inline-block px-2 py-1 text-sm">/google videos:</code> prefix for targeted YouTube video searches.</li>
-                        </ul>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.5.0</h3>
+                        <span class="text-sm text-gray-400">July 13, 2025 (3:09 PM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-new">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M4 14a1 1 0 0 1-.48-1.78l10-10a1 1 0 0 1 1.41.05l7 7a1 1 0 0 1 .16 1.39l-10 10a1 1 0 0 1-1.5-.15l-7-7a1 1 0 0 1 .15-1.49l7-7"/></svg>
+                                NEW FEATURE
+                            </div>
+                            <p class="text-gray-300 mt-1">
+                                <strong>Ticketing System:</strong> Launched the initial version of the ticketing system, allowing users to create tickets for support.
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Previous Update: Token Detection System -->
+                    <!-- Release Card: v2.4.0 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.0.0 - June 7, 2025 (11:50 AM)</h3>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>Security Update: Token Detection System:</strong> Implemented automatic scanning for leaked Discord Bot/User Tokens in messages.</li>
-                            <li><strong>Security Action:</strong> If a token is detected, a warning prompt is sent with an option to delete the token.</li>
-                        </ul>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.4.0</h3>
+                        <span class="text-sm text-gray-400">July 12, 2025 (2:16 PM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-new">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M4 14a1 1 0 0 1-.48-1.78l10-10a1 1 0 0 1 1.41.05l7 7a1 1 0 0 1 .16 1.39l-10 10a1 1 0 0 1-1.5-.15l-7-7a1 1 0 0 1 .15-1.49l7-7"/></svg>
+                                NEW FEATURE
+                            </div>
+                            <p class="text-gray-300 mt-1">
+                                <strong>AI Assistant Support:</strong> Added the <code class="code-block inline-block px-2 py-1 text-sm">$helpme</code> command, allowing users to ask questions in plain language and get AI-powered answers from the documentation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Release Card: v2.3.0 -->
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.3.0</h3>
+                        <span class="text-sm text-gray-400">July 6, 2025 (9:30 PM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-new">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M4 14a1 1 0 0 1-.48-1.78l10-10a1 1 0 0 1 1.41.05l7 7a1 1 0 0 1 .16 1.39l-10 10a1 1 0 0 1-1.5-.15l-7-7a1 1 0 0 1 .15-1.49l7-7"/></svg>
+                                NEW FEATURE
+                            </div>
+                            <p class="text-gray-300 mt-1">
+                                <strong>Alt Account Detection System:</strong> Implemented a risk-based system to detect, log, and auto-moderate suspicious alt accounts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Release Card: v2.2.1 -->
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.2.1</h3>
+                        <span class="text-sm text-gray-400">July 6, 2025 (8:23 PM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-new">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M4 14a1 1 0 0 1-.48-1.78l10-10a1 1 0 0 1 1.41.05l7 7a1 1 0 0 1 .16 1.39l-10 10a1 1 0 0 1-1.5-.15l-7-7a1 1 0 0 1 .15-1.49l7-7"/></svg>
+                                NEW FEATURE
+                            </div>
+                            <p class="text-gray-300 mt-1">
+                                <strong>Ghost Ping Detector:</strong> Implemented a system to detect and log "ghost pings" (mentions followed by quick message deletion).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Release Card: v2.2.0 -->
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.2.0</h3>
+                        <span class="text-sm text-gray-400">June 27, 2025 (1:51 PM)</span>
+                        <div class="mt-3 space-y-3">
+                            <div>
+                                <div class="changelog-tag changelog-tag-new">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M4 14a1 1 0 0 1-.48-1.78l10-10a1 1 0 0 1 1.41.05l7 7a1 1 0 0 1 .16 1.39l-10 10a1 1 0 0 1-1.5-.15l-7-7a1 1 0 0 1 .15-1.49l7-7"/></svg>
+                                    NEW FEATURE
+                                </div>
+                                <p class="text-gray-300 mt-1">
+                                    <strong>Economy System:</strong> Launched a comprehensive in-bot economy with commands like <code class="code-block inline-block px-2 py-1 text-sm">!balance</code>, <code class="code-block inline-block px-2 py-1 text-sm">!daily</code>, <code class="code-block inline-block px-2 py-1 text-sm">!shop</code>, and more.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="changelog-tag changelog-tag-improvement">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                                    IMPROVEMENT
+                                </div>
+                                <p class="text-gray-300 mt-1">
+                                    <strong>Improved User Experience (UX):</strong> Enhanced existing commands with cleaner outputs, improved layouts, and more intuitive interactions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Release Card: v2.1.1 -->
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.1.1</h3>
+                        <span class="text-sm text-gray-400">June 21, 2025 (9:39 PM)</span>
+                         <div class="mt-3 space-y-3">
+                            <div>
+                                <div class="changelog-tag changelog-tag-new">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M4 14a1 1 0 0 1-.48-1.78l10-10a1 1 0 0 1 1.41.05l7 7a1 1 0 0 1 .16 1.39l-10 10a1 1 0 0 1-1.5-.15l-7-7a1 1 0 0 1 .15-1.49l7-7"/></svg>
+                                    NEW FEATURE
+                                </div>
+                                <p class="text-gray-300 mt-1">
+                                    <strong>Web Search Integration:</strong> Added the <code class="code-block inline-block px-2 py-1 text-sm">/google</code> command to perform Google searches directly within Discord.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="changelog-tag changelog-tag-improvement">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                                    IMPROVEMENT
+                                </div>
+                                <p class="text-gray-300 mt-1">
+                                    <strong>Enhanced <code class="code-block inline-block px-2 py-1 text-sm">/google</code> Command:</strong> Introduced <code class="code-block inline-block px-2 py-1 text-sm">/google videos:</code> prefix for targeted YouTube video searches.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Release Card: v2.0.0 -->
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.0.0</h3>
+                        <span class="text-sm text-gray-400">June 7, 2025 (11:50 AM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-security">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                SECURITY UPDATE
+                            </div>
+                            <p class="text-gray-300 mt-1">
+                                <strong>Token Detection System:</strong> Implemented automatic scanning for leaked Discord Bot/User Tokens in messages. If a token is detected, a warning prompt is sent with an option to delete the token.
+                            </p>
+                        </div>
                     </div>
                 </div>
             `
         };
 
-        document.addEventListener('DOMContentLoaded', () => {
+        // --- NEW GLOBAL FUNCTIONS ---
+        // Moved functions here to be globally accessible and fix race conditions.
+
+        /**
+         * Toggles the visibility of an FAQ answer.
+         * Ensures only one FAQ answer is open at a time.
+         * @param {Event} event - The click event.
+         */
+        function toggleFaqAnswer(event) {
+            const clickedQuestion = event.currentTarget;
+            const clickedAnswer = clickedQuestion.nextElementSibling;
+            const contentDisplay = document.getElementById('content-display'); // Need to get this
+            if (!contentDisplay) return;
+            const allFaqItems = contentDisplay.querySelectorAll('.faq-item');
+
+            allFaqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+
+                if (question === clickedQuestion) {
+                    // Toggle the clicked item
+                    question.classList.toggle('open');
+                    answer.classList.toggle('open');
+                    if (answer.classList.contains('open')) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        question.setAttribute('aria-expanded', 'true');
+                    } else {
+                        answer.style.maxHeight = "0";
+                        question.setAttribute('aria-expanded', 'false');
+                    }
+                } else {
+                    // Close other open items
+                    if (question.classList.contains('open')) {
+                        question.classList.remove('open');
+                        answer.classList.remove('open');
+                        answer.style.maxHeight = "0";
+                        question.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        }
+
+        /**
+         * Initializes the FAQ accordion functionality.
+         * This function needs to be called every time new content is loaded, especially the FAQ page.
+         */
+        function initializeFaqAccordion() {
             const contentDisplay = document.getElementById('content-display');
+            if (!contentDisplay) return;
+            const faqQuestions = contentDisplay.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                // Remove existing listeners to prevent duplicates if called multiple times
+                question.removeEventListener('click', toggleFaqAnswer);
+                // Add new listener
+                question.addEventListener('click', toggleFaqAnswer);
+            });
+        }
+
+        // Function to update reading progress bar (global scroll)
+        // Moved global as well, as loadContent calls it
+        function updateReadingProgressBar() {
+            const readingProgressBar = document.getElementById('reading-progress-bar');
+            if (!readingProgressBar) return; // Guard clause
+
+            const docHeight = document.documentElement.scrollHeight;
+            const viewportHeight = document.documentElement.clientHeight;
+            const scrolled = document.documentElement.scrollTop;
+
+            // Only show progress if content is scrollable
+            if (docHeight > viewportHeight) {
+                const progress = (scrolled / (docHeight - viewportHeight)) * 100;
+                readingProgressBar.style.width = progress + '%';
+            } else {
+                readingProgressBar.style.width = '0%'; // No scrollbar, no progress
+            }
+        }
+
+
+        // Function to load content into the main display area
+        // Moved global as well
+        function loadContent(pageId, updateHistory = true) {
+            const contentDisplay = document.getElementById('content-display');
+            const sidebarLinks = document.querySelectorAll('#sidebar-nav .sidebar-link');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+            if (!contentDisplay || !sidebarLinks.length) return; // Guard clause if DOM isn't ready
+
+            if (documentationContent[pageId]) {
+                contentDisplay.innerHTML = documentationContent[pageId];
+
+                // Remove all active and parent-active classes first
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    link.classList.remove('sidebar-parent-active');
+                });
+
+                // Set active class for the clicked link
+                const activeLink = document.querySelector(`[data-page-id="${pageId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+
+                    // Highlight parent if it's a sub-command category
+                    const parentPageIds = {
+                        'commands-slash-moderation': 'commands-slash',
+                        'commands-slash-utility': 'commands-slash',
+                        'commands-slash-fun': 'commands-slash',
+                        'commands-slash-gifs': 'commands-slash',
+                        'commands-slash-image': 'commands-slash',
+                        'commands-slash-server-management': 'commands-slash',
+                        'commands-slash-support': 'commands-slash',
+                        'commands-slash-text-tools': 'commands-slash',
+                        'commands-slash-security': 'commands-slash',
+                        'commands-slash-tools': 'commands-slash',
+                        'commands-slash-other': 'commands-slash',
+                        'commands-slash-hire': 'commands-slash',
+                        'commands-slash-uncategorized': 'commands-slash',
+                        'commands-prefix-economy': 'commands-prefix',
+                        'commands-prefix-fun-games': 'commands-prefix',
+                        'commands-prefix-utility': 'commands-prefix',
+                        'commands-prefix-lookup': 'commands-prefix',
+                        'commands-prefix-math-conversion': 'commands-prefix',
+                        'commands-prefix-meta': 'commands-prefix',
+                        'other-features-detectors': 'other-features',
+                        'other-features-quotes-link': 'other-features'
+                    };
+
+                    const parentId = parentPageIds[pageId];
+                    if (parentId) {
+                        const parentLink = document.querySelector(`[data-page-id="${parentId}"]`);
+                        if (parentLink) {
+                            parentLink.classList.add('sidebar-parent-active');
+                        }
+                    }
+                }
+
+                // If the loaded content is the FAQ page, initialize its accordion
+                if (pageId === 'faqs') {
+                    initializeFaqAccordion();
+                }
+
+                // Re-attach event listeners for sidebar links within content (e.g., in FAQ answers)
+                contentDisplay.querySelectorAll('.sidebar-link-in-content').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetPageId = e.target.dataset.pageId;
+                        if (targetPageId) {
+                            loadContent(targetPageId);
+                            if (updateHistory) {
+                                history.pushState(null, '', `#${targetPageId}`);
+                            }
+                        }
+                    });
+                });
+
+                // Update URL hash
+                if (updateHistory) {
+                    history.pushState(null, '', `#${pageId}`);
+                }
+
+                window.scrollTo({ top: 0, behavior: 'auto' }); // Scroll entire window to top
+
+                // Update global reading progress bar
+                setTimeout(updateReadingProgressBar, 0);
+
+
+            } else {
+                contentDisplay.innerHTML = `<p class="text-red-400">Content for "${pageId}" not found.</p>`;
+            }
+            // Close sidebar after loading content on mobile
+            if (window.innerWidth < 1024) {
+                if(sidebar && sidebarOverlay) {
+                    sidebar.classList.remove('open');
+                    sidebarOverlay.classList.remove('show');
+                }
+            }
+        }
+
+        // Function to set theme color
+        // Moved global as well
+        function setThemeColor(color) {
+            let primaryColor, primaryRgb, hoverColor, hoverRgb, borderColor;
+            switch (color) {
+                case 'purple':
+                    primaryColor = '#8B5CF6';
+                    primaryRgb = '139, 92, 246';
+                    hoverColor = '#7C3AED';
+                    hoverRgb = '124, 58, 237';
+                    borderColor = '#7F00FF';
+                    break;
+                case 'green':
+                    primaryColor = '#10B981';
+                    primaryRgb = '16, 185, 129';
+                    hoverColor = '#059669';
+                    hoverRgb = '5, 150, 105';
+                    borderColor = '#047857';
+                    break;
+                case 'blue':
+                    primaryColor = '#3B82F6';
+                    primaryRgb = '59, 130, 246';
+                    hoverColor = '#2563EB';
+                    hoverRgb = '37, 99, 235';
+                    borderColor = '#1D4ED8';
+                    break;
+                case 'pink':
+                    primaryColor = '#EC4899';
+                    primaryRgb = '236, 72, 153';
+                    hoverColor = '#DB2777';
+                    hoverRgb = '219, 39, 119';
+                    borderColor = '#BE185D';
+                    break;
+                default: // Default to purple
+                    primaryColor = '#8B5CF6';
+                    primaryRgb = '139, 92, 246';
+                    hoverColor = '#7C3AED';
+                    hoverRgb = '124, 58, 237';
+                    borderColor = '#7F00FF';
+                    break;
+            }
+            document.documentElement.style.setProperty('--theme-primary', primaryColor);
+            document.documentElement.style.setProperty('--theme-primary-rgb', primaryRgb);
+            document.documentElement.style.setProperty('--theme-hover', hoverColor);
+            document.documentElement.style.setProperty('--theme-hover-rgb', hoverRgb);
+            document.documentElement.style.setProperty('--theme-border', borderColor);
+
+            // Update active class for swatches
+            document.querySelectorAll('.color-swatch').forEach(swatch => {
+                swatch.classList.remove('active');
+            });
+            const activeSwatch = document.querySelector(`.color-swatch[data-color="${color}"]`);
+            if (activeSwatch) {
+                activeSwatch.classList.add('active');
+            }
+
+            localStorage.setItem('themeColor', color); // Persist preference
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM CONTENT LOADED ---
+            // This listener now ONLY attaches event listeners and runs initial setup
+            // that depends on the DOM being ready. The core functions are global.
+
             const sidebarNav = document.getElementById('sidebar-nav');
-            const sidebarLinks = sidebarNav.querySelectorAll('.sidebar-link');
             const searchInputMain = document.getElementById('search-input-main');
             const searchOverlay = document.getElementById('search-overlay');
             const searchInputModal = document.getElementById('search-input-modal');
             const searchResultsContainer = document.getElementById('search-results');
             const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-            const readingProgressBar = document.getElementById('reading-progress-bar');
-
 
             // Settings elements
             const settingsButton = document.getElementById('settings-button');
@@ -1482,58 +1861,6 @@
             const closeSidebarBtn = document.getElementById('close-sidebar-btn');
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
-
-            /**
-             * Initializes the FAQ accordion functionality.
-             * This function needs to be called every time new content is loaded, especially the FAQ page.
-             */
-            function initializeFaqAccordion() {
-                const faqQuestions = contentDisplay.querySelectorAll('.faq-question');
-
-                faqQuestions.forEach(question => {
-                    // Remove existing listeners to prevent duplicates if called multiple times
-                    question.removeEventListener('click', toggleFaqAnswer);
-                    // Add new listener
-                    question.addEventListener('click', toggleFaqAnswer);
-                });
-            }
-
-            /**
-             * Toggles the visibility of an FAQ answer.
-             * Ensures only one FAQ answer is open at a time.
-             * @param {Event} event - The click event.
-             */
-            function toggleFaqAnswer(event) {
-                const clickedQuestion = event.currentTarget;
-                const clickedAnswer = clickedQuestion.nextElementSibling;
-                const allFaqItems = contentDisplay.querySelectorAll('.faq-item');
-
-                allFaqItems.forEach(item => {
-                    const question = item.querySelector('.faq-question');
-                    const answer = item.querySelector('.faq-answer');
-
-                    if (question === clickedQuestion) {
-                        // Toggle the clicked item
-                        question.classList.toggle('open');
-                        answer.classList.toggle('open');
-                        if (answer.classList.contains('open')) {
-                            answer.style.maxHeight = answer.scrollHeight + "px";
-                            question.setAttribute('aria-expanded', 'true');
-                        } else {
-                            answer.style.maxHeight = "0";
-                            question.setAttribute('aria-expanded', 'false');
-                        }
-                    } else {
-                        // Close other open items
-                        if (question.classList.contains('open')) {
-                            question.classList.remove('open');
-                            answer.classList.remove('open');
-                            answer.style.maxHeight = "0";
-                            question.setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                });
-            }
 
 
             // Function to show/hide search overlay
@@ -1549,115 +1876,6 @@
                 searchOverlay.classList.add('hidden');
                 searchInputModal.value = ''; // Clear modal search input
                 searchResultsContainer.innerHTML = ''; // Clear modal results
-            }
-
-            // Function to load content into the main display area
-            function loadContent(pageId, updateHistory = true) {
-                if (documentationContent[pageId]) {
-                    contentDisplay.innerHTML = documentationContent[pageId];
-
-                    // Remove all active and parent-active classes first
-                    sidebarLinks.forEach(link => {
-                        link.classList.remove('active');
-                        link.classList.remove('sidebar-parent-active');
-                    });
-
-                    // Set active class for the clicked link
-                    const activeLink = document.querySelector(`[data-page-id="${pageId}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-
-                        // Highlight parent if it's a sub-command category
-                        const parentPageIds = {
-                            'commands-slash-moderation': 'commands-slash',
-                            'commands-slash-utility': 'commands-slash',
-                            'commands-slash-fun': 'commands-slash',
-                            'commands-slash-gifs': 'commands-slash',
-                            'commands-slash-image': 'commands-slash',
-                            'commands-slash-server-management': 'commands-slash',
-                            'commands-slash-support': 'commands-slash',
-                            'commands-slash-text-tools': 'commands-slash',
-                            'commands-slash-security': 'commands-slash',
-                            'commands-slash-tools': 'commands-slash',
-                            'commands-slash-other': 'commands-slash',
-                            'commands-slash-hire': 'commands-slash',
-                            'commands-slash-uncategorized': 'commands-slash',
-                            'commands-prefix-economy': 'commands-prefix',
-                            'commands-prefix-fun-games': 'commands-prefix',
-                            'commands-prefix-utility': 'commands-prefix',
-                            'commands-prefix-lookup': 'commands-prefix',
-                            'commands-prefix-math-conversion': 'commands-prefix',
-                            'commands-prefix-meta': 'commands-prefix',
-                            'other-features-detectors': 'other-features',
-                            'other-features-quotes-link': 'other-features'
-                        };
-
-                        const parentId = parentPageIds[pageId];
-                        if (parentId) {
-                            const parentLink = document.querySelector(`[data-page-id="${parentId}"]`);
-                            if (parentLink) {
-                                parentLink.classList.add('sidebar-parent-active');
-                            }
-                        }
-                    }
-
-                    // If the loaded content is the FAQ page, initialize its accordion
-                    if (pageId === 'faqs') {
-                        initializeFaqAccordion();
-                    }
-
-                    // Re-attach event listeners for sidebar links within content (e.g., in FAQ answers)
-                    contentDisplay.querySelectorAll('.sidebar-link-in-content').forEach(link => {
-                        link.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            const targetPageId = e.target.dataset.pageId;
-                            if (targetPageId) {
-                                loadContent(targetPageId);
-                                if (updateHistory) {
-                                    history.pushState(null, '', `#${targetPageId}`);
-                                }
-                            }
-                        });
-                    });
-
-                    // Update URL hash
-                    if (updateHistory) {
-                        history.pushState(null, '', `#${pageId}`);
-                    }
-
-                    // Scroll to top of content area (if it's the main scrollable element)
-                    // contentDisplay.scrollTop = 0; // This is for contentDisplay's internal scroll.
-                    // For global progress bar, we don't reset contentDisplay scroll.
-                    window.scrollTo({ top: 0, behavior: 'auto' }); // Scroll entire window to top
-
-                    // Update global reading progress bar
-                    // Use a setTimeout to ensure DOM is rendered before calculating scroll height
-                    setTimeout(updateReadingProgressBar, 0);
-
-
-                } else {
-                    contentDisplay.innerHTML = `<p class="text-red-400">Content for "${pageId}" not found.</p>`;
-                }
-                // Close sidebar after loading content on mobile
-                if (window.innerWidth < 1024) {
-                    sidebar.classList.remove('open');
-                    sidebarOverlay.classList.remove('show');
-                }
-            }
-
-            // Function to update reading progress bar (global scroll)
-            function updateReadingProgressBar() {
-                const docHeight = document.documentElement.scrollHeight;
-                const viewportHeight = document.documentElement.clientHeight;
-                const scrolled = document.documentElement.scrollTop;
-
-                // Only show progress if content is scrollable
-                if (docHeight > viewportHeight) {
-                    const progress = (scrolled / (docHeight - viewportHeight)) * 100;
-                    readingProgressBar.style.width = progress + '%';
-                } else {
-                    readingProgressBar.style.width = '0%'; // No scrollbar, no progress
-                }
             }
 
             // Listen for scroll events on the window (global scroll)
@@ -1771,10 +1989,11 @@
 
             // Scroll to top button logic
             window.onscroll = function() {
+                // Check scroll position of the window
                 if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollToTopBtn.style.display = "block";
+                    scrollToTopBtn.classList.add('show');
                 } else {
-                    scrollToTopBtn.style.display = "none";
+                    scrollToTopBtn.classList.remove('show');
                 }
             };
 
@@ -1797,67 +2016,6 @@
                 }
             });
 
-            // Function to set theme color
-            function setThemeColor(color) {
-                let primaryColor, primaryRgb, hoverColor, hoverRgb, borderColor, activeSidebarColor;
-                switch (color) {
-                    case 'purple':
-                        primaryColor = '#8B5CF6';
-                        primaryRgb = '139, 92, 246';
-                        hoverColor = '#7C3AED';
-                        hoverRgb = '124, 58, 237';
-                        borderColor = '#7F00FF';
-                        activeSidebarColor = '#7F00FF';
-                        break;
-                    case 'green':
-                        primaryColor = '#10B981';
-                        primaryRgb = '16, 185, 129';
-                        hoverColor = '#059669';
-                        hoverRgb = '5, 150, 105';
-                        borderColor = '#047857';
-                        activeSidebarColor = '#047857';
-                        break;
-                    case 'blue':
-                        primaryColor = '#3B82F6';
-                        primaryRgb = '59, 130, 246';
-                        hoverColor = '#2563EB';
-                        hoverRgb = '37, 99, 235';
-                        borderColor = '#1D4ED8';
-                        activeSidebarColor = '#1D4ED8';
-                        break;
-                    case 'pink':
-                        primaryColor = '#EC4899';
-                        primaryRgb = '236, 72, 153';
-                        hoverColor = '#DB2777';
-                        hoverRgb = '219, 39, 119';
-                        borderColor = '#BE185D';
-                        activeSidebarColor = '#BE185D';
-                        break;
-                    default: // Default to purple
-                        primaryColor = '#8B5CF6';
-                        primaryRgb = '139, 92, 246';
-                        hoverColor = '#7C3AED';
-                        hoverRgb = '124, 58, 237';
-                        borderColor = '#7F00FF';
-                        activeSidebarColor = '#7F00FF';
-                        break;
-                }
-                document.documentElement.style.setProperty('--theme-primary', primaryColor);
-                document.documentElement.style.setProperty('--theme-primary-rgb', primaryRgb); /* Set primary RGB */
-                document.documentElement.style.setProperty('--theme-hover', hoverColor);
-                document.documentElement.style.setProperty('--theme-hover-rgb', hoverRgb); /* Set hover RGB */
-                document.documentElement.style.setProperty('--theme-border', borderColor);
-                document.documentElement.style.setProperty('--theme-active-sidebar', activeSidebarColor);
-
-                // Update active class for swatches
-                colorSwatches.forEach(swatch => {
-                    swatch.classList.remove('active');
-                });
-                document.querySelector(`.color-swatch[data-color="${color}"]`).classList.add('active');
-
-                localStorage.setItem('themeColor', color); // Persist preference
-            }
-
             // Event listeners for color swatches
             colorSwatches.forEach(swatch => {
                 swatch.addEventListener('click', () => {
@@ -1865,6 +2023,7 @@
                     setThemeColor(color);
                 });
             });
+
 
             // Mobile sidebar toggle logic
             hamburgerBtn.addEventListener('click', () => {
@@ -1879,7 +2038,9 @@
                 // Re-add hidden class after transition for mobile if not desktop
                 if (window.innerWidth < 1024) {
                     setTimeout(() => {
-                        sidebar.classList.add('hidden');
+                        if (!sidebar.classList.contains('open')) { // Extra check
+                            sidebar.classList.add('hidden');
+                        }
                     }, 300); // Match CSS transition duration
                 }
             });
@@ -1890,7 +2051,9 @@
                 // Re-add hidden class after transition for mobile if not desktop
                 if (window.innerWidth < 1024) {
                     setTimeout(() => {
-                        sidebar.classList.add('hidden');
+                        if (!sidebar.classList.contains('open')) { // Extra check
+                             sidebar.classList.add('hidden');
+                        }
                     }, 300); // Match CSS transition duration
                 }
             });
@@ -1910,7 +2073,6 @@
             });
 
             // Initial setup for sidebar visibility based on screen size
-            // This ensures the correct state on page load without flickering
             if (window.innerWidth >= 1024) {
                 sidebar.classList.remove('hidden'); // Ensure sidebar is visible on desktop initially
             } else {
@@ -1927,7 +2089,14 @@
                 setThemeColor('purple');
             }
 
-            // Load content based on URL hash or default
+            // --- CONTENT LOAD IS MOVED TO window.onload ---
+            // The initial load call is no longer here.
+        });
+
+        // --- NEW ---
+        // Load initial content AFTER everything (images, scripts, etc.) is loaded.
+        // This is the most robust way to prevent the race condition.
+        window.addEventListener('load', () => {
             const initialPageId = window.location.hash.substring(1) || 'getting-started';
             loadContent(initialPageId, false); // Don't push state on initial load
         });
