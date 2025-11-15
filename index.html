@@ -370,6 +370,7 @@
         .color-swatch-green { background-color: #10B981; }
         .color-swatch-blue { background-color: #3B82F6; }
         .color-swatch-pink { background-color: #EC4899; }
+        .color-swatch-yellow { background-color: #FFDA03; }
         /* .color-swatch-lime { background-color: #A3E635; } Removed Lime Green Swatch */
 
         /* Overlay for when mobile sidebar is open */
@@ -593,12 +594,13 @@
                     </button>
                     <div id="settings-dropdown" class="settings-dropdown-content">
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-white text-sm font-semibold">Theme</span>
+                            <span class="text-white text-sm font-semibold">Theme:</span>
                             <div class="flex space-x-2">
                                 <div class="color-swatch color-swatch-purple active" data-color="purple"></div>
                                 <div class="color-swatch color-swatch-green" data-color="green"></div>
                                 <div class="color-swatch color-swatch-blue" data-color="blue"></div>
                                 <div class="color-swatch color-swatch-pink" data-color="pink"></div>
+                                <div class="color-swatch color-swatch-yellow" data-color="yellow"></div>
                                 <!-- <div class="color-swatch color-swatch-lime active" data-color="lime"></div> Removed Lime Green Swatch -->
                             </div>
                         </div>
@@ -1811,6 +1813,13 @@
                     hoverColor = '#DB2777';
                     hoverRgb = '219, 39, 119';
                     borderColor = '#BE185D';
+                    break;
+                case 'yellow':
+                    primaryColor = '#FFDA03';
+                    primaryRgb = '255, 218, 3';
+                    hoverColor = '#E6C200';
+                    hoverRgb = '230, 194, 0';
+                    borderColor = '#E6C200';
                     break;
                 default: // Default to purple
                     primaryColor = '#8B5CF6';
