@@ -498,7 +498,20 @@
             border: 1px solid rgba(248, 113, 113, 0.2); /* border-red-400/20 */
         }
         .changelog-tag-security svg { color: #fca5a5; } /* text-red-300 */
+        
+        .changelog-tag-relaunch {
+            background-color: rgba(251, 191, 36, 0.1); /* bg-yellow-400/10 */
+            color: #fcd34d; /* text-yellow-300 */
+            border: 1px solid rgba(251, 191, 36, 0.2); /* border-yellow-400/20 */
+        }
+        .changelog-tag-relaunch svg { color: #fcd34d; } /* text-yellow-300 */
 
+        .changelog-tag-bugfix {
+            background-color: #fce8e6;
+            color: #c53929;
+            border: 1px solid #c53929;
+        }
+        .changelog-tag-bugfix svg { color: #c53929; }
     </style>
 </head>
 <body class="antialiased leading-normal">
@@ -1416,17 +1429,36 @@
                 <!-- NEW Tag Styles are in the main <head> style block -->
 
                 <div class="space-y-8">
-                    
+
                     <!-- Release Card: v2.7.0 -->
                     <div class="card border-l-4 border-[var(--theme-primary)]">
                         <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.0</h3>
+                        <span class="text-sm text-gray-400"><strong>Released on:</strong> November 23, 2025 (1:05 PM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-new">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M15 8h6"/><path d="M18 5v6"/><path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332"/></svg>
+                                NEW FEATURE
+                            </div><p class="text-gray-300 mt-1">
+                                <strong class="text-yellow-400">Steam Game Search!</strong><br>
+                                • You can now search any Steam game directly by name.<br>
+                                • Shows release date and general game information like price, review and genres at a glance.<br>
+                                • Shows supported platforms (Windows / Mac / Linux).<br>
+                                • Game prices are shown in both INR (₹) and USD ($).<br>
+                                • Includes real player reviews, formatted for easy reading.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Release Card: v2.6.0 -->
+                        <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.6.0</h3>
                         <span class="text-sm text-gray-400"><strong>Released on:</strong> November 14, 2025 (11:19 AM)</span>
                         <div class="mt-3">
                             <div class="changelog-tag changelog-tag-new">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M15 8h6"/><path d="M18 5v6"/><path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332"/></svg>
                                 NEW FEATURE
                             </div><p class="text-gray-300 mt-1">
-                                <strong class="text-yellow-400">Chaotic Achievement System!</strong><br>
+                                <strong>Chaotic Achievement System!</strong><br>
                                 • Introduced a humorous achievement system triggered by everyday chat behavior.<br>
                                 • Unlock funny titles for sending messages, using emojis, or being completely clueless.<br>
                                 • Designed to add playful chaos and personality to user interactions.<br>
@@ -1437,9 +1469,9 @@
                         </div>
                     </div>
 
-                    <!-- Release Card: v2.6.0 -->
+                    <!-- Release Card: v2.5.0 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.6.0</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.5.0</h3>
                         <span class="text-sm text-gray-400"><strong>Released on:</strong> July 22, 2025 (10:37 PM)</span>
                         <div class="mt-3">
                             <div class="changelog-tag changelog-tag-new">
@@ -1456,9 +1488,9 @@
                         </div>
                     </div>
 
-                    <!-- Release Card: v2.5.1 -->
+                    <!-- Release Card: v2.4.1 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.5.1</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.4.1</h3>
                         <span class="text-sm text-gray-400"><strong>Released on:</strong> July 20, 2025 (2:36 PM)</span>
                         <div class="mt-3">
                             <div class="changelog-tag changelog-tag-improvement">
@@ -1475,9 +1507,9 @@
                         </div>
                     </div>
 
-                    <!-- Release Card: v2.5.0 -->
+                    <!-- Release Card: v2.4.0 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.5.0</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.4.0</h3>
                         <span class="text-sm text-gray-400"><strong>Released on:</strong> July 13, 2025 (3:09 PM)</span>
                         <div class="mt-3">
                             <div class="changelog-tag changelog-tag-new">
@@ -1494,9 +1526,9 @@
                         </div>
                     </div>
 
-                    <!-- Release Card: v2.4.0 -->
+                    <!-- Release Card: v2.3.0 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.4.0</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.3.0</h3>
                         <span class="text-sm text-gray-400"><strong>Released on:</strong> July 12, 2025 (2:16 PM)</span>
                         <div class="mt-3">
                             <div class="changelog-tag changelog-tag-new">
@@ -1512,14 +1544,14 @@
                         </div>
                     </div>
 
-                    <!-- Release Card: v2.3.0 -->
+                    <!-- Release Card: v2.2.2 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.3.0</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.2.2</h3>
                         <span class="text-sm text-gray-400"><strong>Released on:</strong> July 6, 2025 (9:30 PM)</span>
                         <div class="mt-3">
-                            <div class="changelog-tag changelog-tag-new">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M15 8h6"/><path d="M18 5v6"/><path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332"/></svg>
-                                NEW FEATURE
+                            <div class="changelog-tag changelog-tag-security">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                SECURITY UPDATE
                             </div><p class="text-gray-300 mt-1">
                                 <strong>Alt Account Detection System:</strong><br>
                                 • Introduced automated risk-based detection for suspicious alt accounts.<br>
@@ -1568,9 +1600,9 @@
                         </div>
                     </div>
 
-                    <!-- Release Card: v2.1.1 -->
+                    <!-- Release Card: v2.1.0 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.1.1</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.1.0</h3>
                         <span class="text-sm text-gray-400"><strong>Released on:</strong> June 21, 2025 (9:39 PM)</span>
                         <div class="mt-3">
                             <div class="changelog-tag changelog-tag-new">
@@ -1599,9 +1631,9 @@
                         </div>
                     </div>
 
-                    <!-- Release Card: v2.0.0 (Updated Earlier) -->
+                    <!-- Release Card: v2.0.1 -->
                     <div class="card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.0.0</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.0.1</h3>
                         <span class="text-sm text-gray-400"><strong>Released on:</strong> June 7, 2025 (11:50 AM)</span>
                         <div class="mt-3">
                             <div class="changelog-tag changelog-tag-security">
@@ -1614,6 +1646,24 @@
                                 • A warning prompt helps users quickly respond to potential leaks.<br>
                                 • Includes a “Delete Token” option for immediate removal.<br>
                                 • Strengthens server safety by preventing accidental credential exposure.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Release Card: v2.0.0 -->
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.0.0</h3>
+                        <span class="text-sm text-gray-400"><strong>Released on:</strong> March 26, 2025 (12:20 PM)</span>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-relaunch">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M3 12a9 9 0 1 0 9-9c-.75 0-1.48.11-2.16.33L8 6"/><path d="M12 3v7l4-4"/><path d="M11 21H3"/><path d="M21 21h-8"/></svg>
+                                RE-LAUNCH
+                            </div><p class="text-gray-300 mt-1">
+                                <strong>Highlights of the Relaunch:</strong><br>
+                                • Bot Relaunched.<br>
+                                • Core Systems Restored.<br>
+                                • Some Features Temporarily Missing.<br>
+                                • Active Development Resumed.
                             </p>
                         </div>
                     </div>
