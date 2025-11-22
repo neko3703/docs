@@ -79,6 +79,7 @@
             border-radius: 0.375rem;
             font-family: monospace;
             overflow-x: auto;
+            vertical-align: middle;
         }
         .btn-primary {
             background-color: transparent;
@@ -1423,7 +1424,8 @@
             "changelog": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Changelog / Release Notes</h2>
                 <p class="text-gray-300 mb-8">
-                    Stay up-to-date with the latest changes, features, and bug fixes in Neko Code.
+                    Stay up-to-date with the latest changes, features, and bug fixes in Neko Code.<br>
+                    Not sure how to use certain features? Use <code class="code-block inline-block px-2 py-1 text-sm">/help</code> command or check out our <a data-page-id="faqs" class="text-blue-400 hover:underline sidebar-link-in-content">FAQ</a> or join our <a href="https://nekocode.in/discord" target="_blank" class="text-blue-400 hover:underline">Support Server</a> for assistance.  
                 </p>
 
                 <!-- NEW Tag Styles are in the main <head> style block -->
@@ -1440,7 +1442,7 @@
                                 NEW FEATURE
                             </div><p class="text-gray-300 mt-1">
                                 <strong class="text-yellow-400">Steam Game Search!</strong><br>
-                                • You can now search any Steam game directly by name.<br>
+                                • You can now search any Steam game directly by name using <code class="code-block inline-block px-2 py-1 text-sm">$steam game-name</code>.<br>
                                 • Shows release date and general game information like price, review and genres at a glance.<br>
                                 • Shows supported platforms (Windows / Mac / Linux).<br>
                                 • Game prices are shown in both INR (₹) and USD ($).<br>
