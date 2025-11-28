@@ -61,6 +61,3 @@ If you encounter any issues, need help with configuration, or have questions:
 
 * Check the [Troubleshooting Guide](https://docs.nekocode.in/).
 * Join the official **Support Server** for direct assistance.
-
----
-*This README was generated based on the [Neko Code Documentation](https://docs.nekocode.in/).*
