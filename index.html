@@ -1433,9 +1433,90 @@
                     Not sure how to use certain features? Use <code class="code-block inline-block px-2 py-1 text-sm">/help</code> command or check out our <a data-page-id="faqs" class="text-blue-400 hover:underline sidebar-link-in-content">FAQ</a> or join our <a href="https://nekocode.in/discord" target="_blank" class="text-blue-400 hover:underline">Support Server</a> for assistance.  
                 </p>
 
+                
                 <div class="space-y-8">
-                    <!-- Release Card: v2.7.3 -->
+
+                    <!-- Release Card: v2.7.4 -->
                     <div class="card border-l-4 border-[var(--theme-primary)]">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.4</h3>
+                        <span class="text-sm text-gray-400">
+                            <strong>Released on:</strong> January 24, 2026 (11:13 AM)
+                        </span>
+
+                        <div class="mt-3">
+                            <!-- NEW FEATURE -->
+                            <div class="changelog-tag changelog-tag-new">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" class="mr-1.5">
+                                    <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+                                    <path d="M15 8h6" />
+                                    <path d="M18 5v6" />
+                                    <path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332" />
+                                </svg>
+                                NEW FEATURE
+                            </div>
+
+                            <p class="text-gray-300 mt-1">
+                                <strong class="text-yellow-400">Ping Mods</strong><br>
+                                • You can now instantly ping a moderator in your server if something seems off.<br>
+                                • Moderators are configured by role and selected randomly.<br>
+                                • Online moderators are preferred when available.<br>
+                                • Built-in cooldowns prevent spam and abuse.<br>
+                                • Managed using:
+                                <code class="code-block inline-block px-2 py-1 text-sm">\$pingmods</code>,
+                                <code class="code-block inline-block px-2 py-1 text-sm">\$pingmods add @Role</code>,
+                                <code class="code-block inline-block px-2 py-1 text-sm">\$pingmods remove @Role</code>.
+                            </p>
+
+                            <!-- NEW FEATURE -->
+                            <div class="changelog-tag changelog-tag-new mt-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" class="mr-1.5">
+                                    <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+                                    <path d="M15 8h6" />
+                                    <path d="M18 5v6" />
+                                    <path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332" />
+                                </svg>
+                                NEW FEATURE
+                            </div>
+
+                            <p class="text-gray-300 mt-1">
+                                <strong class="text-yellow-400">Autorole</strong><br>
+                                • Automatically assigns a role to users as soon as they join the server.<br>
+                                • Only one autorole can be configured per server for clarity and consistency.<br>
+                                • Safely handles missing roles and permission limitations.<br>
+                                • Managed using:
+                                <code class="code-block inline-block px-2 py-1 text-sm">\$autorole set @Role</code>,
+                                <code class="code-block inline-block px-2 py-1 text-sm">\$autorole show</code>,
+                                <code class="code-block inline-block px-2 py-1 text-sm">\$autorole remove</code>.<br>
+                                📌 <strong>Note:</strong> Make sure the bot’s role is positioned
+                                <strong>above the autorole</strong> in the server’s role hierarchy.
+                            </p>
+
+                            <!-- IMPROVEMENT -->
+                            <div class="changelog-tag changelog-tag-improvement mt-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" class="mr-1.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <path d="m9 11 3 3L22 4" />
+                                </svg>
+                                IMPROVEMENT
+                            </div>
+
+                            <p class="text-gray-300 mt-1">
+                                <strong class="text-yellow-400">Stability & Reliability</strong><br>
+                                • Improved error handling for moderation-related commands.<br>
+                                • Reduced silent failures during member joins.<br>
+                                • Better handling of network timeouts and edge cases.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Release Card: v2.7.3 -->
+                    <div class="card">
                         <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.3</h3>
                         <span class="text-sm text-gray-400"><strong>Released on:</strong> December 1, 2025 (8:50 AM)</span>
                         <div class="mt-3">
@@ -1453,7 +1534,6 @@
                         </div>
                     </div>
 
-                <div class="space-y-8">
                     <!-- Release Card: v2.7.2 -->
                     <div class="card">
                         <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.2</h3>
