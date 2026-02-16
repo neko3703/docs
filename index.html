@@ -1,662 +1,1033 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neko Code Documentation</title>
-    <meta name="description" content="Official documentation for Neko Code Discord Bot. Learn about its features, commands (slash and prefix), and how to get started.">
-    <meta name="theme-color" content="##F48FB1"> <!-- Light Pink theme color -->
+    <meta
+      name="description"
+      content="Official documentation for Neko Code Discord Bot. Learn about its features, commands (slash and prefix), and how to get started."
+    />
+    <meta name="theme-color" content="##F48FB1" />
+    <!-- Light Pink theme color -->
 
     <!-- Favicon / Tab Icon -->
-    <link rel="icon" href="./images/nekocode.png" type="image/png">
+    <link rel="icon" href="./images/nekocode.png" type="image/png" />
 
     <!-- Open Graph / Facebook Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nekocode.in/docs"> <!-- Replace with your actual docs URL -->
-    <meta property="og:title" content="Neko Code Documentation">
-    <meta property="og:description" content="Official documentation for Neko Code Discord Bot. Learn about its features, commands (slash and prefix), and how to get started.">
-    <meta property="og:image" content="./images/nekocode.png">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nekocode.in/docs" />
+    <!-- Replace with your actual docs URL -->
+    <meta property="og:title" content="Neko Code Documentation" />
+    <meta
+      property="og:description"
+      content="Official documentation for Neko Code Discord Bot. Learn about its features, commands (slash and prefix), and how to get started."
+    />
+    <meta property="og:image" content="./images/nekocode.png" />
 
     <!-- Twitter Meta Tags -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nekocode.in/docs"> <!-- Replace with your actual docs URL -->
-    <meta property="twitter:title" content="Neko Code Documentation">
-    <meta property="twitter:description" content="Official documentation for Neko Code Discord Bot. Learn about its features, commands (slash and prefix), and how to get started.">
-    <meta property="twitter:image" content="./images/nekocode.png">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://nekocode.in/docs" />
+    <!-- Replace with your actual docs URL -->
+    <meta property="twitter:title" content="Neko Code Documentation" />
+    <meta
+      property="twitter:description"
+      content="Official documentation for Neko Code Discord Bot. Learn about its features, commands (slash and prefix), and how to get started."
+    />
+    <meta property="twitter:image" content="./images/nekocode.png" />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter (for body text) and Montserrat (for headings) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            /* NEW Modern Dark Mode Colors */
-            --bg-primary: #111827; /* Tailwind gray-900 */
-            --bg-secondary: #1F2937; /* Tailwind gray-800 */
-            --text-primary: #F9FAFB; /* Tailwind gray-50 */
-            --text-secondary: #9CA3AF; /* Tailwind gray-400 */
-            --border-color: #374151; /* Tailwind gray-700 */
-            --code-bg: #000000; /* Pure black for code */
+      :root {
+        /* NEW Modern Dark Mode Colors */
+        --bg-primary: #111827; /* Tailwind gray-900 */
+        --bg-secondary: #1f2937; /* Tailwind gray-800 */
+        --text-primary: #f9fafb; /* Tailwind gray-50 */
+        --text-secondary: #9ca3af; /* Tailwind gray-400 */
+        --border-color: #374151; /* Tailwind gray-700 */
+        --code-bg: #000000; /* Pure black for code */
 
-            /* Default Theme Color (Purple) - Unchanged */
-            --theme-primary: #8B5CF6; /* Purple */
-            --theme-primary-rgb: 139, 92, 246; /* RGB values for rgba() */
-            --theme-hover: #7C3AED;
-            --theme-hover-rgb: 124, 58, 237;
-            --theme-border: #7F00FF;
-            /* --theme-active-sidebar: #7F00FF; -- This is now redundant, will use --theme-primary */
-        }
+        /* Default Theme Color (Purple) - Unchanged */
+        --theme-primary: #8b5cf6; /* Purple */
+        --theme-primary-rgb: 139, 92, 246; /* RGB values for rgba() */
+        --theme-hover: #7c3aed;
+        --theme-hover-rgb: 124, 58, 237;
+        --theme-border: #7f00ff;
+        /* --theme-active-sidebar: #7F00FF; -- This is now redundant, will use --theme-primary */
+      }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .section-title {
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .page-heading {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            color: var(--text-primary);
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+      .section-title {
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .page-heading {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        color: var(--text-primary);
+      }
 
-        .card {
-            background-color: var(--bg-secondary);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            /* NEW subtle border and shadow */
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        .code-block {
-            background-color: var(--code-bg);
-            color: var(--text-secondary);
-            padding: 1rem;
-            border-radius: 0.375rem;
-            font-family: monospace;
-            overflow-x: auto;
-            vertical-align: middle;
-        }
-        .btn-primary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid var(--theme-primary);
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-        }
+      .card {
+        background-color: var(--bg-secondary);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        /* NEW subtle border and shadow */
+        border: 1px solid var(--border-color);
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      .code-block {
+        background-color: var(--code-bg);
+        color: var(--text-secondary);
+        padding: 1rem;
+        border-radius: 0.375rem;
+        font-family: monospace;
+        overflow-x: auto;
+        vertical-align: middle;
+      }
+      .btn-primary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid var(--theme-primary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        transition:
+          background-color 0.3s ease,
+          transform 0.1s ease;
+      }
 
-        .btn-primary:hover {
-            background-color: rgba(var(--theme-primary-rgb), 0.2);
-            transform: translateY(-1px);
-        }
+      .btn-primary:hover {
+        background-color: rgba(var(--theme-primary-rgb), 0.2);
+        transform: translateY(-1px);
+      }
 
-        .btn-primary:active {
-            transform: translateY(0);
-        }
+      .btn-primary:active {
+        transform: translateY(0);
+      }
 
+      .sidebar {
+        background-color: transparent;
+        padding: 1.5rem;
+        border-radius: 0;
+        box-shadow: none;
+        position: sticky;
+        top: 0;
+        left: 0; /* Ensure it's aligned to the left */
+        height: 100vh;
+        overflow-y: auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        border-right: 1px solid var(--border-color);
+        /* Mobile specific styles */
+        position: fixed; /* Make it fixed for mobile overlay */
+        width: 80%; /* Occupy 80% width on mobile */
+        max-width: 300px; /* Max width for mobile sidebar */
+        z-index: 50; /* Ensure it's above content but below modals */
+        background-color: var(
+          --bg-primary
+        ); /* Solid background for mobile overlay */
+        transform: translateX(-100%); /* Start off-screen */
+        transition: transform 0.3s ease-in-out;
+      }
+      .sidebar.open {
+        transform: translateX(0); /* Slide in */
+      }
+      @media (min-width: 1024px) {
+        /* Desktop styles */
         .sidebar {
-            background-color: transparent;
-            padding: 1.5rem;
-            border-radius: 0;
-            box-shadow: none;
-            position: sticky;
-            top: 0;
-            left: 0; /* Ensure it's aligned to the left */
-            height: 100vh;
-            overflow-y: auto;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            border-right: 1px solid var(--border-color);
-            /* Mobile specific styles */
-            position: fixed; /* Make it fixed for mobile overlay */
-            width: 80%; /* Occupy 80% width on mobile */
-            max-width: 300px; /* Max width for mobile sidebar */
-            z-index: 50; /* Ensure it's above content but below modals */
-            background-color: var(--bg-primary); /* Solid background for mobile overlay */
-            transform: translateX(-100%); /* Start off-screen */
-            transition: transform 0.3s ease-in-out;
+          position: sticky; /* Revert to sticky on desktop */
+          width: 1/5; /* Keep desktop width */
+          transform: translateX(0); /* Always visible */
+          border-right: 1px solid var(--border-color);
+          background-color: var(--bg-primary); /* Match body bg */
         }
-        .sidebar.open {
-            transform: translateX(0); /* Slide in */
-        }
-        @media (min-width: 1024px) { /* Desktop styles */
-            .sidebar {
-                position: sticky; /* Revert to sticky on desktop */
-                width: 1/5; /* Keep desktop width */
-                transform: translateX(0); /* Always visible */
-                border-right: 1px solid var(--border-color);
-                background-color: var(--bg-primary); /* Match body bg */
-            }
-        }
+      }
 
-        .sidebar-link {
-            display: block;
-            padding: 0.5rem 0.75rem;
-            color: var(--text-secondary);
-            transition: color 0.2s ease, background-color 0.2s ease, border-left 0.2s ease;
-            border-radius: 0.25rem;
-            margin-bottom: 0; /* Reduced spacing */
-            border-left: 3px solid transparent; /* Placeholder for active border */
-            padding-left: calc(0.75rem - 3px);
-        }
-        .sidebar-link:hover {
-            /* NEW elegant hover */
-            color: var(--theme-primary);
-            background-color: rgba(var(--theme-primary-rgb), 0.1);
-        }
-        .sidebar-link.active {
-            /* NEW elegant active state */
-            color: var(--theme-primary);
-            background-color: rgba(var(--theme-primary-rgb), 0.15);
-            font-weight: 700; /* Made bolder */
-            border-left: 3px solid var(--theme-primary);
-            padding-left: calc(0.75rem - 3px);
-        }
-        .sidebar-link.sidebar-parent-active {
-            /* NEW elegant parent active state */
-            background-color: rgba(var(--theme-primary-rgb), 0.1);
-            color: var(--theme-primary);
-            font-weight: 700; /* Made bolder */
-            border-left: 3px solid var(--theme-primary);
-            padding-left: calc(0.75rem - 3px);
-        }
-        .sidebar ul ul {
-            margin-left: 1.5rem;
-            padding-left: 0.25rem; /* Add some padding to the UL itself */
-            border-left: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for nested section */
-            border-radius: 0.25rem;
-            margin-top: 0.125rem; /* Reduced spacing */
-            margin-bottom: 0.125rem; /* Reduced spacing */
-        }
-        .sidebar ul ul .sidebar-link {
-            padding-left: 0.75rem; /* Adjust padding for visual alignment within nested list */
-            font-size: 0.95rem; /* Slightly smaller font for children */
-            color: var(--text-secondary);
-        }
-        .sidebar ul ul ul { /* Grandchild indentation */
-            margin-left: 1rem; /* Further indent for grandchildren */
-            padding-left: 0.25rem;
-            border-left: 1px solid rgba(255, 255, 255, 0.05); /* Lighter border for deeper nesting */
-        }
-        .sidebar ul ul ul .sidebar-link {
-            padding-left: 0.75rem; /* Adjust padding for visual alignment */
-        }
+      .sidebar-link {
+        display: block;
+        padding: 0.5rem 0.75rem;
+        color: var(--text-secondary);
+        transition:
+          color 0.2s ease,
+          background-color 0.2s ease,
+          border-left 0.2s ease;
+        border-radius: 0.25rem;
+        margin-bottom: 0; /* Reduced spacing */
+        border-left: 3px solid transparent; /* Placeholder for active border */
+        padding-left: calc(0.75rem - 3px);
+      }
+      .sidebar-link:hover {
+        /* NEW elegant hover */
+        color: var(--theme-primary);
+        background-color: rgba(var(--theme-primary-rgb), 0.1);
+      }
+      .sidebar-link.active {
+        /* NEW elegant active state */
+        color: var(--theme-primary);
+        background-color: rgba(var(--theme-primary-rgb), 0.15);
+        font-weight: 700; /* Made bolder */
+        border-left: 3px solid var(--theme-primary);
+        padding-left: calc(0.75rem - 3px);
+      }
+      .sidebar-link.sidebar-parent-active {
+        /* NEW elegant parent active state */
+        background-color: rgba(var(--theme-primary-rgb), 0.1);
+        color: var(--theme-primary);
+        font-weight: 700; /* Made bolder */
+        border-left: 3px solid var(--theme-primary);
+        padding-left: calc(0.75rem - 3px);
+      }
+      .sidebar ul ul {
+        margin-left: 1.5rem;
+        padding-left: 0.25rem; /* Add some padding to the UL itself */
+        border-left: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for nested section */
+        border-radius: 0.25rem;
+        margin-top: 0.125rem; /* Reduced spacing */
+        margin-bottom: 0.125rem; /* Reduced spacing */
+      }
+      .sidebar ul ul .sidebar-link {
+        padding-left: 0.75rem; /* Adjust padding for visual alignment within nested list */
+        font-size: 0.95rem; /* Slightly smaller font for children */
+        color: var(--text-secondary);
+      }
+      .sidebar ul ul ul {
+        /* Grandchild indentation */
+        margin-left: 1rem; /* Further indent for grandchildren */
+        padding-left: 0.25rem;
+        border-left: 1px solid rgba(255, 255, 255, 0.05); /* Lighter border for deeper nesting */
+      }
+      .sidebar ul ul ul .sidebar-link {
+        padding-left: 0.75rem; /* Adjust padding for visual alignment */
+      }
 
+      .main-content-area {
+        padding: 0; /* Remove padding, header will handle it */
+        background-color: var(--bg-primary);
+        position: relative; /* Needed for absolute positioning of progress bar */
+      }
+      @media (min-width: 1024px) {
         .main-content-area {
-            padding: 0; /* Remove padding, header will handle it */
-            background-color: var(--bg-primary);
-            position: relative; /* Needed for absolute positioning of progress bar */
+          padding: 0;
         }
-        @media (min-width: 1024px) {
-            .main-content-area {
-                padding: 0;
-            }
-        }
-        #scrollToTopBtn {
-            /* NEW circular button style */
-            display: flex; /* Use flex to center icon */
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            border: none;
-            outline: none;
-            background-color: var(--theme-primary);
-            color: white;
-            cursor: pointer;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%; /* Circular */
-            font-size: 20px; /* Icon size */
-            box-shadow: 0 4px 12px rgba(var(--theme-primary-rgb), 0.3);
-            /* NEW fade in/out animation */
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-        }
-        #scrollToTopBtn.show {
-            /* NEW class to show button */
-            opacity: 1;
-            transform: translateY(0);
-        }
-        #scrollToTopBtn:hover {
-            background-color: var(--theme-hover);
-            transform: translateY(-2px);
-        }
-        #scrollToTopBtn:active {
-            transform: translateY(0);
-        }
+      }
+      #scrollToTopBtn {
+        /* NEW circular button style */
+        display: flex; /* Use flex to center icon */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: var(--theme-primary);
+        color: white;
+        cursor: pointer;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%; /* Circular */
+        font-size: 20px; /* Icon size */
+        box-shadow: 0 4px 12px rgba(var(--theme-primary-rgb), 0.3);
+        /* NEW fade in/out animation */
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease,
+          background-color 0.3s ease;
+      }
+      #scrollToTopBtn.show {
+        /* NEW class to show button */
+        opacity: 1;
+        transform: translateY(0);
+      }
+      #scrollToTopBtn:hover {
+        background-color: var(--theme-hover);
+        transform: translateY(-2px);
+      }
+      #scrollToTopBtn:active {
+        transform: translateY(0);
+      }
 
-        .search-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* NEW backdrop blur effect */
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(4px);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            z-index: 100;
-            padding-top: 10vh;
-        }
+      .search-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* NEW backdrop blur effect */
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(4px);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: 100;
+        padding-top: 10vh;
+      }
 
-        .search-container-modal {
-            background-color: var(--bg-secondary);
-            border-radius: 0.5rem;
-            box-shadow: 0 8px 16px 0px rgba(0,0,0,0.4);
-            width: 90%;
-            max-width: 600px;
-            padding: 1.5rem;
-            position: relative;
-            border: 1px solid var(--border-color); /* NEW border */
-        }
+      .search-container-modal {
+        background-color: var(--bg-secondary);
+        border-radius: 0.5rem;
+        box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.4);
+        width: 90%;
+        max-width: 600px;
+        padding: 1.5rem;
+        position: relative;
+        border: 1px solid var(--border-color); /* NEW border */
+      }
 
-        .search-input-modal {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border-radius: 0.375rem;
-            background-color: var(--bg-primary); /* NEW bg */
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            outline: none;
-            font-size: 1.125rem;
-            margin-bottom: 1rem;
-        }
-        .search-input-modal:focus {
-             border-color: var(--theme-primary);
-             box-shadow: 0 0 0 2px rgba(var(--theme-primary-rgb), 0.3);
-        }
+      .search-input-modal {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 0.375rem;
+        background-color: var(--bg-primary); /* NEW bg */
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        outline: none;
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+      }
+      .search-input-modal:focus {
+        border-color: var(--theme-primary);
+        box-shadow: 0 0 0 2px rgba(var(--theme-primary-rgb), 0.3);
+      }
 
-        .search-results-list {
-            max-height: 400px;
-            overflow-y: auto;
-            border-top: 1px solid var(--border-color);
-            padding-top: 0.5rem;
-        }
+      .search-results-list {
+        max-height: 400px;
+        overflow-y: auto;
+        border-top: 1px solid var(--border-color);
+        padding-top: 0.5rem;
+      }
 
-        .search-result-item {
-            padding: 0.75rem 1rem;
-            cursor: pointer;
-            border-radius: 0.25rem;
-            transition: background-color 0.2s ease;
-            margin-bottom: 0.25rem;
-        }
+      .search-result-item {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        transition: background-color 0.2s ease;
+        margin-bottom: 0.25rem;
+      }
 
-        .search-result-item:hover {
-            background-color: var(--border-color);
-        }
+      .search-result-item:hover {
+        background-color: var(--border-color);
+      }
 
-        .search-result-item .title {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
+      .search-result-item .title {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
 
-        .search-result-item .snippet {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
+      .search-result-item .snippet {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-top: 0.25rem;
+      }
 
+      .settings-container {
+        position: relative;
+        display: inline-block;
+      }
 
-        .settings-container {
-            position: relative;
-            display: inline-block;
-        }
+      .settings-button {
+        background-color: transparent;
+        border: none;
+        color: var(--text-primary);
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 0.375rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background-color 0.2s ease;
+      }
 
-        .settings-button {
-            background-color: transparent;
-            border: none;
-            color: var(--text-primary);
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 0.375rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: background-color 0.2s ease;
-        }
+      .settings-button:hover {
+        background-color: var(--border-color);
+      }
 
-        .settings-button:hover {
-            background-color: var(--border-color);
-        }
+      .settings-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--bg-secondary);
+        min-width: 180px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        right: 0;
+        top: 100%;
+        margin-top: 0.5rem;
+        border: 1px solid var(--border-color); /* NEW border */
+      }
 
-        .settings-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--bg-secondary);
-            min-width: 180px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            right: 0;
-            top: 100%;
-            margin-top: 0.5rem;
-            border: 1px solid var(--border-color); /* NEW border */
-        }
+      .settings-dropdown-content.show {
+        display: block;
+      }
 
-        .settings-dropdown-content.show {
-            display: block;
-        }
+      .color-swatch {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition:
+          border-color 0.2s ease,
+          transform 0.1s ease;
+      }
 
-        .color-swatch {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: border-color 0.2s ease, transform 0.1s ease;
-        }
+      .color-swatch:hover {
+        transform: scale(1.1);
+      }
 
-        .color-swatch:hover {
-            transform: scale(1.1);
-        }
+      .color-swatch.active {
+        border-color: var(--text-primary);
+      }
 
-        .color-swatch.active {
-            border-color: var(--text-primary);
-        }
+      .color-swatch-purple {
+        background-color: #8b5cf6;
+      }
+      .color-swatch-green {
+        background-color: #10b981;
+      }
+      .color-swatch-blue {
+        background-color: #3b82f6;
+      }
+      .color-swatch-pink {
+        background-color: #ec4899;
+      }
+      .color-swatch-yellow {
+        background-color: #ffda03;
+      }
+      /* .color-swatch-lime { background-color: #A3E635; } Removed Lime Green Swatch */
 
-        .color-swatch-purple { background-color: #8B5CF6; }
-        .color-swatch-green { background-color: #10B981; }
-        .color-swatch-blue { background-color: #3B82F6; }
-        .color-swatch-pink { background-color: #EC4899; }
-        .color-swatch-yellow { background-color: #FFDA03; }
-        /* .color-swatch-lime { background-color: #A3E635; } Removed Lime Green Swatch */
+      /* Overlay for when mobile sidebar is open */
+      .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(2px); /* NEW blur effect */
+        z-index: 40; /* Below sidebar, above content */
+        display: none; /* Hidden by default */
+      }
+      .sidebar-overlay.show {
+        display: block;
+      }
 
-        /* Overlay for when mobile sidebar is open */
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(2px); /* NEW blur effect */
-            z-index: 40; /* Below sidebar, above content */
-            display: none; /* Hidden by default */
-        }
-        .sidebar-overlay.show {
-            display: block;
-        }
+      /* Styles for the FAQ accordion */
+      .faq-item {
+        background-color: var(--bg-secondary);
+        border-radius: 0.75rem; /* More rounded corners */
+        margin-bottom: 1rem; /* More spacing between cards */
+        overflow: hidden;
+        /* NEW card styling */
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        border: 1px solid var(--border-color);
+        transition:
+          transform 0.2s ease-in-out,
+          box-shadow 0.2s ease-in-out,
+          border-color 0.2s ease-in-out;
+      }
+      .faq-item:hover {
+        transform: translateY(-3px); /* Lift on hover */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+        border-color: var(--theme-primary); /* Highlight border on hover */
+      }
 
-        /* Styles for the FAQ accordion */
-        .faq-item {
-            background-color: var(--bg-secondary);
-            border-radius: 0.75rem; /* More rounded corners */
-            margin-bottom: 1rem; /* More spacing between cards */
-            overflow: hidden;
-            /* NEW card styling */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
-        }
-        .faq-item:hover {
-            transform: translateY(-3px); /* Lift on hover */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-            border-color: var(--theme-primary); /* Highlight border on hover */
-        }
+      .faq-question {
+        width: 100%;
+        padding: 1.25rem 1.5rem; /* More padding */
+        text-align: left;
+        font-size: 1.125rem; /* text-lg */
+        font-weight: 600; /* font-semibold */
+        color: var(--text-primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        transition:
+          color 0.2s ease-in-out,
+          background-color 0.2s ease-in-out;
+      }
+      .faq-question:hover {
+        color: var(--theme-primary);
+      }
+      .faq-question.open {
+        /* NEW elegant open state */
+        background-color: rgba(var(--theme-primary-rgb), 0.1);
+        color: var(--theme-primary); /* Keep theme color when open */
+      }
 
-        .faq-question {
-            width: 100%;
-            padding: 1.25rem 1.5rem; /* More padding */
-            text-align: left;
-            font-size: 1.125rem; /* text-lg */
-            font-weight: 600; /* font-semibold */
-            color: var(--text-primary);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-        }
-        .faq-question:hover {
-            color: var(--theme-primary);
-        }
-        .faq-question.open {
-            /* NEW elegant open state */
-            background-color: rgba(var(--theme-primary-rgb), 0.1);
-            color: var(--theme-primary); /* Keep theme color when open */
-        }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease-in-out,
+          padding 0.4s ease-in-out;
+        padding: 0 1.5rem; /* Match question padding */
+        color: var(--text-secondary);
+        font-size: 0.95rem; /* Slightly smaller text for answers */
+        line-height: 1.6;
+      }
+      .faq-answer.open {
+        max-height: 500px; /* A sufficiently large value to accommodate content */
+        padding-bottom: 1.5rem; /* More padding at the bottom */
+      }
+      .faq-question svg {
+        transition: transform 0.3s ease-in-out;
+      }
+      .faq-question.open svg {
+        transform: rotate(180deg);
+        color: var(--theme-primary);
+      }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-            padding: 0 1.5rem; /* Match question padding */
-            color: var(--text-secondary);
-            font-size: 0.95rem; /* Slightly smaller text for answers */
-            line-height: 1.6;
-        }
-        .faq-answer.open {
-            max-height: 500px; /* A sufficiently large value to accommodate content */
-            padding-bottom: 1.5rem; /* More padding at the bottom */
-        }
-        .faq-question svg {
-            transition: transform 0.3s ease-in-out;
-        }
-        .faq-question.open svg {
-            transform: rotate(180deg);
-            color: var(--theme-primary);
-        }
+      /* Reading Progress Bar Styles */
+      #reading-progress-bar {
+        position: fixed; /* Changed from sticky to fixed */
+        top: 0;
+        left: 0;
+        height: 6px; /* NEW thinner bar */
+        background-color: var(--theme-primary); /* Use theme color */
+        width: 100vw; /* Ensure it spans the full viewport width */
+        z-index: 9999; /* Increased z-index to be on top of everything */
+        transition: width 0.1s linear; /* Smooth fill */
+        border-radius: 0 2px 2px 0; /* Rounded right end */
+        /* NEW glow effect */
+        box-shadow: 0 0 10px rgba(var(--theme-primary-rgb), 0.5);
+      }
 
-        /* Reading Progress Bar Styles */
-        #reading-progress-bar {
-            position: fixed; /* Changed from sticky to fixed */
-            top: 0;
-            left: 0;
-            height: 6px; /* NEW thinner bar */
-            background-color: var(--theme-primary); /* Use theme color */
-            width: 100vw; /* Ensure it spans the full viewport width */
-            z-index: 9999; /* Increased z-index to be on top of everything */
-            transition: width 0.1s linear; /* Smooth fill */
-            border-radius: 0 2px 2px 0; /* Rounded right end */
-            /* NEW glow effect */
-            box-shadow: 0 0 10px rgba(var(--theme-primary-rgb), 0.5);
-        }
+      /* NEW Updated Changelog Tag Styles */
+      .changelog-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.125rem 0.625rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border-radius: 9999px;
+        margin-bottom: 0.5rem;
+        margin-top: 0.25rem;
+        line-height: 1.25rem;
+      }
+      .changelog-tag-new {
+        background-color: rgba(74, 222, 128, 0.1); /* bg-green-400/10 */
+        color: #86efac; /* text-green-300 */
+        border: 1px solid rgba(74, 222, 128, 0.2); /* border-green-400/20 */
+      }
+      .changelog-tag-new svg {
+        color: #86efac;
+      } /* text-green-300 */
 
-        /* NEW Updated Changelog Tag Styles */
-        .changelog-tag {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.125rem 0.625rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border-radius: 9999px;
-            margin-bottom: 0.5rem;
-            margin-top: 0.25rem;
-            line-height: 1.25rem;
-        }
-        .changelog-tag-new {
-            background-color: rgba(74, 222, 128, 0.1); /* bg-green-400/10 */
-            color: #86efac; /* text-green-300 */
-            border: 1px solid rgba(74, 222, 128, 0.2); /* border-green-400/20 */
-        }
-        .changelog-tag-new svg { color: #86efac; } /* text-green-300 */
-        
-        .changelog-tag-improvement {
-            background-color: rgba(96, 165, 250, 0.1); /* bg-blue-400/10 */
-            color: #93c5fd; /* text-blue-300 */
-            border: 1px solid rgba(96, 165, 250, 0.2); /* border-blue-400/20 */
-        }
-        .changelog-tag-improvement svg { color: #93c5fd; } /* text-blue-300 */
+      .changelog-tag-improvement {
+        background-color: rgba(96, 165, 250, 0.1); /* bg-blue-400/10 */
+        color: #93c5fd; /* text-blue-300 */
+        border: 1px solid rgba(96, 165, 250, 0.2); /* border-blue-400/20 */
+      }
+      .changelog-tag-improvement svg {
+        color: #93c5fd;
+      } /* text-blue-300 */
 
-        .changelog-tag-security {
-            background-color: rgba(248, 113, 113, 0.1); /* bg-red-400/10 */
-            color: #fca5a5; /* text-red-300 */
-            border: 1px solid rgba(248, 113, 113, 0.2); /* border-red-400/20 */
-        }
-        .changelog-tag-security svg { color: #fca5a5; } /* text-red-300 */
-        
-        .changelog-tag-relaunch {
-            background-color: rgba(251, 191, 36, 0.1); /* bg-yellow-400/10 */
-            color: #fcd34d; /* text-yellow-300 */
-            border: 1px solid rgba(251, 191, 36, 0.2); /* border-yellow-400/20 */
-        }
-        .changelog-tag-relaunch svg { color: #fcd34d; } /* text-yellow-300 */
+      .changelog-tag-security {
+        background-color: rgba(248, 113, 113, 0.1); /* bg-red-400/10 */
+        color: #fca5a5; /* text-red-300 */
+        border: 1px solid rgba(248, 113, 113, 0.2); /* border-red-400/20 */
+      }
+      .changelog-tag-security svg {
+        color: #fca5a5;
+      } /* text-red-300 */
 
-        .changelog-tag-bugfix {
-            background-color: #fce8e6;
-            color: #c53929;
-            border: 1px solid #c53929;
-        }
-        .changelog-tag-bugfix svg { color: #c53929; }
+      .changelog-tag-relaunch {
+        background-color: rgba(251, 191, 36, 0.1); /* bg-yellow-400/10 */
+        color: #fcd34d; /* text-yellow-300 */
+        border: 1px solid rgba(251, 191, 36, 0.2); /* border-yellow-400/20 */
+      }
+      .changelog-tag-relaunch svg {
+        color: #fcd34d;
+      } /* text-yellow-300 */
+
+      .changelog-tag-bugfix {
+        background-color: #fce8e6;
+        color: #c53929;
+        border: 1px solid #c53929;
+      }
+      .changelog-tag-bugfix svg {
+        color: #c53929;
+      }
     </style>
-</head>
-<body class="antialiased leading-normal">
-    <div id="reading-progress-bar"></div> <!-- Moved here to be a direct child of body -->
+  </head>
+  <body class="antialiased leading-normal">
+    <div id="reading-progress-bar"></div>
+    <!-- Moved here to be a direct child of body -->
     <div class="flex flex-col lg:flex-row min-h-screen">
-        <!-- Sidebar Overlay for Mobile -->
-        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+      <!-- Sidebar Overlay for Mobile -->
+      <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-        <!-- Left Sidebar Navigation -->
-        <!-- The 'hidden' class is removed by JS on desktop, and added/removed on mobile -->
-        <aside id="sidebar" class="w-full lg:w-1/5 sidebar hidden lg:block">
-            <div class="mb-8 text-center lg:text-left flex items-center justify-between">
-                <div>
-                    <h2 class="text-3xl font-bold text-white page-heading">Neko Code</h2>
-                    <p class="text-gray-400 text-sm">Documentation</p>
+      <!-- Left Sidebar Navigation -->
+      <!-- The 'hidden' class is removed by JS on desktop, and added/removed on mobile -->
+      <aside id="sidebar" class="w-full lg:w-1/5 sidebar hidden lg:block">
+        <div
+          class="mb-8 text-center lg:text-left flex items-center justify-between"
+        >
+          <div>
+            <h2 class="text-3xl font-bold text-white page-heading">
+              Neko Code
+            </h2>
+            <p class="text-gray-400 text-sm">Documentation</p>
+          </div>
+          <!-- Close button for mobile sidebar (visible only on mobile) -->
+          <button
+            id="close-sidebar-btn"
+            class="lg:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-full hover:bg-gray-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="mb-6 relative">
+          <input
+            type="text"
+            id="search-input-main"
+            placeholder="Search docs... (Ctrl + K)"
+            class="w-full p-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--theme-border)]"
+          />
+        </div>
+
+        <nav id="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#about" class="sidebar-link active" data-page-id="about"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#getting-started"
+                class="sidebar-link"
+                data-page-id="getting-started"
+                >Getting Started</a
+              >
+            </li>
+            <li>
+              <a href="#features" class="sidebar-link" data-page-id="features"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a
+                href="#how-to-use"
+                class="sidebar-link"
+                data-page-id="how-to-use"
+                >How to Use</a
+              >
+            </li>
+            <li>
+              <a
+                href="#commands-overview"
+                class="sidebar-link"
+                data-page-id="commands-overview"
+                >Command List Overview</a
+              >
+            </li>
+            <li>
+              <a
+                href="#commands-slash"
+                class="sidebar-link"
+                data-page-id="commands-slash"
+                >Slash Commands</a
+              >
+              <ul>
+                <li>
+                  <a
+                    href="#commands-slash-moderation"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-moderation"
+                    >Moderation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-utility"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-utility"
+                    >Utility</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-fun"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-fun"
+                    >Fun</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-gifs"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-gifs"
+                    >GIFs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-image"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-image"
+                    >Image</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-server-management"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-server-management"
+                    >Server Management</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-support"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-support"
+                    >Support</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-text-tools"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-text-tools"
+                    >Text Tools</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-security"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-security"
+                    >Security</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-tools"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-tools"
+                    >Tools</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-other"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-other"
+                    >Other Commands</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-hire"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-hire"
+                    >Hire Neko</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-slash-uncategorized"
+                    class="sidebar-link"
+                    data-page-id="commands-slash-uncategorized"
+                    >Uncategorized</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="#commands-prefix"
+                class="sidebar-link"
+                data-page-id="commands-prefix"
+                >Prefix Commands</a
+              >
+              <ul>
+                <li>
+                  <a
+                    href="#commands-prefix-economy"
+                    class="sidebar-link"
+                    data-page-id="commands-prefix-economy"
+                    >Economy</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-prefix-fun-games"
+                    class="sidebar-link"
+                    data-page-id="commands-prefix-fun-games"
+                    >Fun and Games</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-prefix-moderation"
+                    class="sidebar-link"
+                    data-page-id="commands-prefix-moderation"
+                    >Moderation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-prefix-utility"
+                    class="sidebar-link"
+                    data-page-id="commands-prefix-utility"
+                    >Utility</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-prefix-lookup"
+                    class="sidebar-link"
+                    data-page-id="commands-prefix-lookup"
+                    >Look-up</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-prefix-math-conversion"
+                    class="sidebar-link"
+                    data-page-id="commands-prefix-math-conversion"
+                    >Math & Conversion</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#commands-prefix-meta"
+                    class="sidebar-link"
+                    data-page-id="commands-prefix-meta"
+                    >Meta</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="#other-features"
+                class="sidebar-link"
+                data-page-id="other-features"
+                >Other Features</a
+              >
+              <ul>
+                <li>
+                  <a
+                    href="#other-features-detectors"
+                    class="sidebar-link"
+                    data-page-id="other-features-detectors"
+                    >Detectors</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#other-features-quotes-link"
+                    class="sidebar-link"
+                    data-page-id="other-features-quotes-link"
+                    >Quotes Message Link</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#support" class="sidebar-link" data-page-id="support"
+                >Support & Community</a
+              >
+            </li>
+            <li>
+              <a href="#faqs" class="sidebar-link" data-page-id="faqs">FAQs</a>
+            </li>
+            <!-- New Sidebar Links -->
+            <li>
+              <a
+                href="#troubleshooting-guide"
+                class="sidebar-link"
+                data-page-id="troubleshooting-guide"
+                >Troubleshooting Guide</a
+              >
+            </li>
+            <li>
+              <a href="#changelog" class="sidebar-link" data-page-id="changelog"
+                >Changelog</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="w-full lg:w-4/5 main-content-area flex flex-col flex-grow">
+        <!-- NEW Sticky Header with backdrop blur -->
+        <header
+          class="flex items-center p-4 sticky top-0 z-40 bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border-color)] lg:border-none"
+        >
+          <!-- Hamburger Icon (visible on mobile, hidden on desktop) -->
+          <button
+            id="hamburger-btn"
+            class="lg:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-full hover:bg-gray-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Spacer (pushes settings to the right on ALL screen sizes) -->
+          <div class="flex-grow"></div>
+
+          <div class="settings-container">
+            <button id="settings-button" class="settings-button">
+              SETTINGS
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div id="settings-dropdown" class="settings-dropdown-content">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-white text-sm font-semibold">Theme:</span>
+                <div class="flex space-x-2">
+                  <div
+                    class="color-swatch color-swatch-purple active"
+                    data-color="purple"
+                  ></div>
+                  <div
+                    class="color-swatch color-swatch-green"
+                    data-color="green"
+                  ></div>
+                  <div
+                    class="color-swatch color-swatch-blue"
+                    data-color="blue"
+                  ></div>
+                  <div
+                    class="color-swatch color-swatch-pink"
+                    data-color="pink"
+                  ></div>
+                  <div
+                    class="color-swatch color-swatch-yellow"
+                    data-color="yellow"
+                  ></div>
+                  <!-- <div class="color-swatch color-swatch-lime active" data-color="lime"></div> Removed Lime Green Swatch -->
                 </div>
-                <!-- Close button for mobile sidebar (visible only on mobile) -->
-                <button id="close-sidebar-btn" class="lg:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-full hover:bg-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
+              </div>
             </div>
+          </div>
+        </header>
 
-            <div class="mb-6 relative">
-                <input type="text" id="search-input-main" placeholder="Search docs... (Ctrl + K)"
-                       class="w-full p-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--theme-border)]">
-            </div>
+        <!-- Dynamic Content Area -->
+        <div
+          id="content-display"
+          class="flex-grow min-h-[60vh] p-6 lg:p-10 overflow-y-auto"
+        >
+          <!-- Content will be loaded here dynamically by JavaScript -->
+        </div>
 
-            <nav id="sidebar-nav">
-                <ul>
-                    <li><a href="#about" class="sidebar-link active" data-page-id="about">About</a></li>
-                    <li><a href="#getting-started" class="sidebar-link" data-page-id="getting-started">Getting Started</a></li>
-                    <li><a href="#features" class="sidebar-link" data-page-id="features">Features</a></li>
-                    <li><a href="#how-to-use" class="sidebar-link" data-page-id="how-to-use">How to Use</a></li>
-                    <li><a href="#commands-overview" class="sidebar-link" data-page-id="commands-overview">Command List Overview</a></li>
-                    <li><a href="#commands-slash" class="sidebar-link" data-page-id="commands-slash">Slash Commands</a>
-                        <ul>
-                            <li><a href="#commands-slash-moderation" class="sidebar-link" data-page-id="commands-slash-moderation">Moderation</a></li>
-                            <li><a href="#commands-slash-utility" class="sidebar-link" data-page-id="commands-slash-utility">Utility</a></li>
-                            <li><a href="#commands-slash-fun" class="sidebar-link" data-page-id="commands-slash-fun">Fun</a></li>
-                            <li><a href="#commands-slash-gifs" class="sidebar-link" data-page-id="commands-slash-gifs">GIFs</a></li>
-                            <li><a href="#commands-slash-image" class="sidebar-link" data-page-id="commands-slash-image">Image</a></li>
-                            <li><a href="#commands-slash-server-management" class="sidebar-link" data-page-id="commands-slash-server-management">Server Management</a></li>
-                            <li><a href="#commands-slash-support" class="sidebar-link" data-page-id="commands-slash-support">Support</a></li>
-                            <li><a href="#commands-slash-text-tools" class="sidebar-link" data-page-id="commands-slash-text-tools">Text Tools</a></li>
-                            <li><a href="#commands-slash-security" class="sidebar-link" data-page-id="commands-slash-security">Security</a></li>
-                            <li><a href="#commands-slash-tools" class="sidebar-link" data-page-id="commands-slash-tools">Tools</a></li>
-                            <li><a href="#commands-slash-other" class="sidebar-link" data-page-id="commands-slash-other">Other Commands</a></li>
-                            <li><a href="#commands-slash-hire" class="sidebar-link" data-page-id="commands-slash-hire">Hire Neko</a></li>
-                            <li><a href="#commands-slash-uncategorized" class="sidebar-link" data-page-id="commands-slash-uncategorized">Uncategorized</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#commands-prefix" class="sidebar-link" data-page-id="commands-prefix">Prefix Commands</a>
-                        <ul>
-                            <li><a href="#commands-prefix-economy" class="sidebar-link" data-page-id="commands-prefix-economy">Economy</a></li>
-                            <li><a href="#commands-prefix-fun-games" class="sidebar-link" data-page-id="commands-prefix-fun-games">Fun and Games</a></li>
-                            <li><a href="#commands-prefix-moderation" class="sidebar-link" data-page-id="commands-prefix-moderation">Moderation</a></li>
-                            <li><a href="#commands-prefix-utility" class="sidebar-link" data-page-id="commands-prefix-utility">Utility</a></li>
-                            <li><a href="#commands-prefix-lookup" class="sidebar-link" data-page-id="commands-prefix-lookup">Look-up</a></li>
-                            <li><a href="#commands-prefix-math-conversion" class="sidebar-link" data-page-id="commands-prefix-math-conversion">Math & Conversion</a></li>
-                            <li><a href="#commands-prefix-meta" class="sidebar-link" data-page-id="commands-prefix-meta">Meta</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#other-features" class="sidebar-link" data-page-id="other-features">Other Features</a>
-                        <ul>
-                            <li><a href="#other-features-detectors" class="sidebar-link" data-page-id="other-features-detectors">Detectors</a></li>
-                            <li><a href="#other-features-quotes-link" class="sidebar-link" data-page-id="other-features-quotes-link">Quotes Message Link</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#support" class="sidebar-link" data-page-id="support">Support & Community</a></li>
-                    <li><a href="#faqs" class="sidebar-link" data-page-id="faqs">FAQs</a></li>
-                    <!-- New Sidebar Links -->
-                    <li><a href="#troubleshooting-guide" class="sidebar-link" data-page-id="troubleshooting-guide">Troubleshooting Guide</a></li>
-                    <li><a href="#changelog" class="sidebar-link" data-page-id="changelog">Changelog</a></li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="w-full lg:w-4/5 main-content-area flex flex-col flex-grow">
-            <!-- NEW Sticky Header with backdrop blur -->
-            <header class="flex items-center p-4 sticky top-0 z-40 bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border-color)] lg:border-none">
-                <!-- Hamburger Icon (visible on mobile, hidden on desktop) -->
-                <button id="hamburger-btn" class="lg:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-full hover:bg-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-
-                <!-- Spacer (pushes settings to the right on ALL screen sizes) -->
-                <div class="flex-grow"></div>
-
-                <div class="settings-container">
-                    <button id="settings-button" class="settings-button">
-                        SETTINGS
-                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div id="settings-dropdown" class="settings-dropdown-content">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-white text-sm font-semibold">Theme:</span>
-                            <div class="flex space-x-2">
-                                <div class="color-swatch color-swatch-purple active" data-color="purple"></div>
-                                <div class="color-swatch color-swatch-green" data-color="green"></div>
-                                <div class="color-swatch color-swatch-blue" data-color="blue"></div>
-                                <div class="color-swatch color-swatch-pink" data-color="pink"></div>
-                                <div class="color-swatch color-swatch-yellow" data-color="yellow"></div>
-                                <!-- <div class="color-swatch color-swatch-lime active" data-color="lime"></div> Removed Lime Green Swatch -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <!-- Dynamic Content Area -->
-            <div id="content-display" class="flex-grow min-h-[60vh] p-6 lg:p-10 overflow-y-auto">
-                <!-- Content will be loaded here dynamically by JavaScript -->
-            </div>
-
-            <!-- Footer -->
-            <footer class="text-center text-gray-500 mt-10 p-6 border-t border-gray-700">
-                <!-- Footer content can go here -->
-            </footer>
-        </main>
+        <!-- Footer -->
+        <footer
+          class="text-center text-gray-500 mt-10 p-6 border-t border-gray-700"
+        >
+          <!-- Footer content can go here -->
+        </footer>
+      </main>
     </div>
 
     <!-- Search Overlay/Modal -->
     <div id="search-overlay" class="search-overlay hidden">
-        <div class="search-container-modal">
-            <input type="text" id="search-input-modal" placeholder="Search docs... (Ctrl + K)" class="search-input-modal">
-            <div id="search-results" class="search-results-list">
-                <!-- Search results will be dynamically loaded here -->
-            </div>
+      <div class="search-container-modal">
+        <input
+          type="text"
+          id="search-input-modal"
+          placeholder="Search docs... (Ctrl + K)"
+          class="search-input-modal"
+        />
+        <div id="search-results" class="search-results-list">
+          <!-- Search results will be dynamically loaded here -->
         </div>
+      </div>
     </div>
 
     <!-- Scroll to Top Button -->
     <button id="scrollToTopBtn" title="Go to top">
-        <!-- NEW SVG Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
-        </svg>
+      <!-- NEW SVG Icon -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2.5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 15l7-7 7 7"
+        />
+      </svg>
     </button>
 
     <script>
-        // Define all documentation content as HTML strings
-        const documentationContent = {
-            "about": `
+      // Define all documentation content as HTML strings
+      const documentationContent = {
+        about: `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">About Neko Code</h2>
                 <p class="text-gray-300 leading-relaxed">
                     Neko Code is designed to enhance your Discord server experience with a wide range of features.
@@ -672,7 +1043,7 @@
                     the bot runs smoothly 24/7. Join our support server if you have any questions or suggestions!
                 </p>
             `,
-            "getting-started": `
+        "getting-started": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Getting Started</h2>
                 <p class="text-gray-300 leading-relaxed mb-4">
                     Welcome to Neko Code! This guide will help you get started with adding the bot to your server and understanding its basic functionalities.
@@ -697,7 +1068,7 @@
                     If you encounter any issues or have questions, join our <a href="https://nekocode.in/discord" target="_blank" class="text-blue-400 hover:underline">support server</a>.
                 </p>
             `,
-            "features": `
+        features: `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Key Features</h2>
                 <ul class="list-disc list-inside text-gray-300 space-y-2">
                     <li><strong>Moderation:</strong> Keep your server clean and orderly with powerful moderation commands like kick, ban, mute, warn, and more.</li>
@@ -710,7 +1081,7 @@
                     <em>Note: Specific features may vary. Please refer to the command list for the most up-to-date information.</em>
                 </p>
             `,
-            "how-to-use": `
+        "how-to-use": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">How to Use Neko Code</h2>
                 <p class="text-gray-300 mb-8">
                     Using Neko Code is straightforward. Once invited to your server, you can start interacting with it
@@ -748,7 +1119,7 @@
                     For a full list of commands and their usage, type <code class="code-block inline-block px-2 py-1 text-sm">/help</code> in your Discord server.
                 </p>
             `,
-            "commands-overview": `
+        "commands-overview": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Command List Overview</h2>
                 <p class="text-gray-300 mb-6">
                     Neko Code offers a wide array of commands accessible via both slash commands (Discord's native commands starting with <code class="code-block inline-block px-2 py-1 text-sm">/</code>) and traditional prefix commands (starting with <code class="code-block inline-block px-2 py-1 text-sm">!</code>, <code class="code-block inline-block px-2 py-1 text-sm">$</code>, <code class="code-block inline-block px-2 py-1 text-sm">?</code>, <code class="code-block inline-block px-2 py-1 text-sm">></code>).
@@ -765,7 +1136,7 @@
                     Explore the sub-sections for detailed lists of Economy, Fun and Games, Utility, Look-up, Math & Conversion, and Meta prefix commands.
                 </p>
             `,
-            "commands-slash": `
+        "commands-slash": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands</h2>
                 <p class="text-gray-300 mb-8">
                     This section provides an overview of the main slash command categories. For detailed command usage and examples, please navigate to the specific sub-sections in the sidebar.
@@ -786,7 +1157,7 @@
                     <li><strong>Uncategorized:</strong> Commands that don't fit into other categories.</li>
                 </ul>
             `,
-            "commands-slash-moderation": `
+        "commands-slash-moderation": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Moderation</h2>
                 <p class="text-gray-300 mb-8">
                     These commands help you maintain order and manage users within your server.
@@ -802,7 +1173,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/timeout</code> - Timeout a user.</li>
                 </ul>
             `,
-            "commands-slash-utility": `
+        "commands-slash-utility": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Utility</h2>
                 <p class="text-gray-300 mb-8">
                     Handy tools for various server and bot-related information.
@@ -823,7 +1194,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/todo-clear</code> - Clear all tasks from your to-do list.</li>
                 </ul>
             `,
-            "commands-slash-fun": `
+        "commands-slash-fun": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Fun</h2>
                 <p class="text-gray-300 mb-8">
                     Commands to add a touch of fun and entertainment to your server.
@@ -835,7 +1206,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/movie</code> - Suggests a movie.</li>
                 </ul>
             `,
-            "commands-slash-gifs": `
+        "commands-slash-gifs": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - GIFs</h2>
                 <p class="text-gray-300 mb-8">
                     Send various anime-themed reaction GIFs.
@@ -848,7 +1219,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/wink</code> - Sends a winking anime GIF.</li>
                 </ul>
             `,
-            "commands-slash-image": `
+        "commands-slash-image": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Image</h2>
                 <p class="text-gray-300 mb-8">
                     Commands related to images and visual content.
@@ -860,7 +1231,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/embed</code> - Create an embed.</li>
                 </ul>
             `,
-            "commands-slash-server-management": `
+        "commands-slash-server-management": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Server Management</h2>
                 <p class="text-gray-300 mb-8">
                     Tools to help you manage your Discord server's channels, roles, and members.
@@ -876,7 +1247,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/slowmode</code> - Set the slowmode in the current channel.</li>
                 </ul>
             `,
-            "commands-slash-support": `
+        "commands-slash-support": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Support</h2>
                 <p class="text-gray-300 mb-8">
                     Commands to get assistance or report issues with the bot.
@@ -888,7 +1259,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/setup-tickets</code> - Setup the ticketing system in your server.</li>
                 </ul>
             `,
-            "commands-slash-text-tools": `
+        "commands-slash-text-tools": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Text Tools</h2>
                 <p class="text-gray-300 mb-8">
                     Useful commands for text manipulation and communication.
@@ -899,7 +1270,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/confess</code> - Confess something anonymously.</li>
                 </ul>
             `,
-            "commands-slash-security": `
+        "commands-slash-security": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Security</h2>
                 <p class="text-gray-300 mb-8">
                     Commands to help with security-related checks.
@@ -909,7 +1280,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/setup-verification</code> - Setup CAPTCHA based verification for your server.</li>
                 </ul>
             `,
-            "commands-slash-tools": `
+        "commands-slash-tools": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Tools</h2>
                 <p class="text-gray-300 mb-8">
                     General purpose tools for various tasks.
@@ -918,7 +1289,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/generate-password</code> - Create a strong password.</li>
                 </ul>
             `,
-            "commands-slash-other": `
+        "commands-slash-other": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Other Commands</h2>
                 <p class="text-gray-300 mb-8">
                     Miscellaneous commands that provide general information or functionality.
@@ -928,7 +1299,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/suggest</code> - Suggest something.</li>
                 </ul>
             `,
-            "commands-slash-hire": `
+        "commands-slash-hire": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Hire Neko</h2>
                 <p class="text-gray-300 mb-8">
                     Information on how to hire the developer for custom Discord bot creation or server setup.
@@ -937,7 +1308,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/hire</code> - Hire my developer for creating a discord bot or setting up discord servers.</li>
                 </ul>
             `,
-            "commands-slash-uncategorized": `
+        "commands-slash-uncategorized": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Slash Commands - Uncategorized</h2>
                 <p class="text-gray-300 mb-8">
                     Commands that do not fit into specific categories.
@@ -946,7 +1317,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/intents-status</code> - Check which intents are enabled.</li>
                 </ul>
             `,
-            "commands-prefix": `
+        "commands-prefix": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Prefix Commands</h2>
                 <p class="text-gray-300 mb-8">
                     This section provides an overview of the main prefix command categories. For detailed command usage and examples, please navigate to the specific sub-sections in the sidebar. Remember the prefixes are <code class="code-block inline-block px-2 py-1 text-sm">!</code>, <code class="code-block inline-block px-2 py-1 text-sm">$</code>, <code class="code-block inline-block px-2 py-1 text-sm">?</code>, and <code class="code-block inline-block px-2 py-1 text-sm">></code>. The prefix <code class="code-block inline-block px-2 py-1 text-sm">!</code> is used as an example. You can use any of the four available prefixes.
@@ -960,7 +1331,7 @@
                     <li><strong>Meta:</strong> Miscellaneous commands providing bot information or general facts.</li>
                 </ul>
             `,
-            "commands-prefix-economy": `
+        "commands-prefix-economy": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Prefix Commands - Economy</h2>
                 <p class="text-gray-300 mb-8">
                     Manage your in-game currency "Neko Coins" and interact with the bot's economy system.
@@ -986,7 +1357,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!lottery</code> - Try your luck with lottery tickets.</li>
                 </ul>
             `,
-            "commands-prefix-fun-games": `
+        "commands-prefix-fun-games": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Prefix Commands - Fun and Games</h2>
                 <p class="text-gray-300 mb-8">
                     Engage with interactive games and fun commands.
@@ -1004,7 +1375,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!cashout</code> - Bet climbs until it explodes.</li>
                 </ul>
             `,
-            "commands-prefix-moderation": `
+        "commands-prefix-moderation": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Prefix Commands - Moderation</h2>
                 <p class="text-gray-300 mb-8">
                     Commands related to mod pingging and autoroles.
@@ -1017,9 +1388,14 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!autorole set @Role</code> - Set the autorole for new members. (Server admins only)</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!autorole remove @Role</code> - Remove a role from autorole. (Server admins only)</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!autorole show</code> - Show the current autorole. (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!linkblocker</code> - Shows the help menu and current status. (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!linkblocker enable</code> - Enable link blocker. (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!linkblocker disable</code> - Disable link blocker. (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!linkblocker allowrole(s)</code> - Allow roles to bypass link blocker. (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!linkblocker removerole(s)</code> - Remove roles from bypassing link blocker. (Server admins only)</li>
                 </ul>
             `,
-            "commands-prefix-utility": `
+        "commands-prefix-utility": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Prefix Commands - Utility</h2>
                 <p class="text-gray-300 mb-8">
                     General utility commands for various helpful functions.
@@ -1034,7 +1410,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!quote-this</code> - Reply to a message to turn it into a quote.</li>
                 </ul>
             `,
-            "commands-prefix-lookup": `
+        "commands-prefix-lookup": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Prefix Commands - Look-up</h2>
                 <p class="text-gray-300 mb-8">
                     Commands to fetch information from various external sources.
@@ -1049,7 +1425,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!repo</code> - Search a github repository.</li>
                 </ul>
             `,
-            "commands-prefix-math-conversion": `
+        "commands-prefix-math-conversion": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Prefix Commands - Math & Conversion</h2>
                 <p class="text-gray-300 mb-8">
                     Commands for mathematical calculations and unit conversions.
@@ -1062,7 +1438,7 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!sqrt</code> - Calculates the square root of a number.</li>
                 </ul>
             `,
-            "commands-prefix-meta": `
+        "commands-prefix-meta": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Prefix Commands - Meta</h2>
                 <p class="text-gray-300 mb-8">
                     Miscellaneous commands providing information about the bot or general facts.
@@ -1073,14 +1449,14 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!quote</code> - Fetches an inspirational quote.</li>
                 </ul>
             `,
-            "other-features": `
+        "other-features": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Other Features</h2>
                 <p class="text-gray-300 mb-8">
                     Beyond commands, Neko Code offers several passive and utility features to enhance your server experience.
                     Explore the sub-sections for detailed information on Detectors and the Quotes Message Link feature.
                 </p>
             `,
-            "other-features-detectors": `
+        "other-features-detectors": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Other Features - Detectors</h2>
                 <p class="text-gray-300 mb-8">
                     Neko Code includes intelligent detectors to help maintain server safety and transparency.
@@ -1090,7 +1466,7 @@
                     <li><strong>Ghost Ping Detector:</strong> Identifies and notifies users when someone "ghost pings" (mentions someone and then quickly deletes the message), promoting transparency.</li>
                 </ul>
             `,
-            "other-features-quotes-link": `
+        "other-features-quotes-link": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Other Features - Quotes Message Link</h2>
                 <p class="text-gray-300 mb-8">
                     Enhance your conversation flow with automatic message embedding.
@@ -1099,7 +1475,7 @@
                     <li>When a Discord message link is posted, Neko Code can automatically embed the content of that message, making it easier to see quoted messages without leaving the current channel.</li>
                 </ul>
             `,
-            "support": `
+        support: `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Support & Community</h2>
                 <p class="text-gray-300 mb-8">
                     We are dedicated to providing comprehensive support for all Neko Code users. If you encounter any issues, have questions about bot functionality, or wish to suggest new features, our community and support team are here to help. We encourage you to join our official Discord support server, where you can connect with other users, get real-time assistance from our moderators, and stay updated on the latest news and announcements. Your feedback is invaluable in helping us improve Neko Code and ensure a smooth experience for everyone.
@@ -1118,8 +1494,8 @@
                     </a>
                 </div>
             `,
-            // Updated FAQ Section with 20 FAQs and new UI
-            "faqs": `
+        // Updated FAQ Section with 20 FAQs and new UI
+        faqs: `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Frequently Asked Questions</h2>
                 <p class="text-gray-300 mb-6">
                     Here are some common questions about Neko Code. If you can't find your answer here, please visit our <a href="https://nekocode.in/discord" target="_blank" class="text-blue-400 hover:underline">support server</a>.
@@ -1394,7 +1770,7 @@
                     </div>
                 </div>
             `,
-            "troubleshooting-guide": `
+        "troubleshooting-guide": `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Troubleshooting Guide</h2>
                 <p class="text-gray-300 mb-8">
                     Encountering issues with Neko Code? This guide provides solutions to common problems.
@@ -1443,7 +1819,7 @@
                     </ol>
                 </p>
             `,
-            "changelog": `
+        changelog: `
                 <h2 class="text-3xl font-semibold section-title page-heading mb-6">Changelog / Release Notes</h2>
                 <p class="text-gray-300 mb-8">
                     Stay up-to-date with the latest changes, features, and bug fixes in Neko Code.<br>
@@ -1453,8 +1829,42 @@
                 
                 <div class="space-y-8">
                     
+                    <!-- Release Card: v2.7.6 -->
+<div class="card border-l-4 border-[var(--theme-primary)]">
+    <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.6</h3>
+    <span class="text-sm text-gray-400">
+        <strong>Released on:</strong> February 16, 2026 (7:22 AM)
+    </span>
+
+    <div class="mt-3">
+        <div class="changelog-tag changelog-tag-new">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                class="mr-1.5">
+                <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+                <path d="M15 8h6" />
+                <path d="M18 5v6" />
+                <path
+                    d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332" />
+            </svg>
+            NEW FEATURE
+        </div>
+
+        <p class="text-gray-300 mt-1">
+            <strong class="text-yellow-400">Configurable Link Blocker System</strong><br>
+            • Introduced a <strong>server-wide link blocking system</strong> configurable by administrators.<br>
+            • Link blocking can be <strong>enabled or disabled per server</strong> using prefix commands.<br>
+            • Admins can <strong>allow specific roles</strong> to bypass link restrictions.<br>
+            • Supports both <strong>role mentions and raw role IDs</strong> for configuration.<br>
+            • Multiple roles can be <strong>added or removed in a single command</strong>.<br>
+            • All settings are <strong>stored persistently</strong> and applied instantly without restarts.<br>
+            • Includes permission checks and safety handling to prevent accidental misconfiguration.
+        </p>
+    </div>
+</div>
+
                     <!-- Release Card: v2.7.5 -->
-                    <div class="card border-l-4 border-[var(--theme-primary)]">
+                    <div class="card">
                         <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.5</h3>
                         <span class="text-sm text-gray-400">
                             <strong>Released on:</strong> January 27, 2026 (9:45 AM)
@@ -1852,516 +2262,566 @@
                         </div>
                     </div>
 
-            `
-        };
+            `,
+      };
 
-        // --- NEW GLOBAL FUNCTIONS ---
-        // Moved functions here to be globally accessible and fix race conditions.
+      // --- NEW GLOBAL FUNCTIONS ---
+      // Moved functions here to be globally accessible and fix race conditions.
 
-        /**
-         * Toggles the visibility of an FAQ answer.
-         * Ensures only one FAQ answer is open at a time.
-         * @param {Event} event - The click event.
-         */
-        function toggleFaqAnswer(event) {
-            const clickedQuestion = event.currentTarget;
-            const clickedAnswer = clickedQuestion.nextElementSibling;
-            const contentDisplay = document.getElementById('content-display'); // Need to get this
-            if (!contentDisplay) return;
-            const allFaqItems = contentDisplay.querySelectorAll('.faq-item');
+      /**
+       * Toggles the visibility of an FAQ answer.
+       * Ensures only one FAQ answer is open at a time.
+       * @param {Event} event - The click event.
+       */
+      function toggleFaqAnswer(event) {
+        const clickedQuestion = event.currentTarget;
+        const clickedAnswer = clickedQuestion.nextElementSibling;
+        const contentDisplay = document.getElementById("content-display"); // Need to get this
+        if (!contentDisplay) return;
+        const allFaqItems = contentDisplay.querySelectorAll(".faq-item");
 
-            allFaqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
+        allFaqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+          const answer = item.querySelector(".faq-answer");
 
-                if (question === clickedQuestion) {
-                    // Toggle the clicked item
-                    question.classList.toggle('open');
-                    answer.classList.toggle('open');
-                    if (answer.classList.contains('open')) {
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                        question.setAttribute('aria-expanded', 'true');
-                    } else {
-                        answer.style.maxHeight = "0";
-                        question.setAttribute('aria-expanded', 'false');
-                    }
-                } else {
-                    // Close other open items
-                    if (question.classList.contains('open')) {
-                        question.classList.remove('open');
-                        answer.classList.remove('open');
-                        answer.style.maxHeight = "0";
-                        question.setAttribute('aria-expanded', 'false');
-                    }
-                }
-            });
-        }
-
-        /**
-         * Initializes the FAQ accordion functionality.
-         * This function needs to be called every time new content is loaded, especially the FAQ page.
-         */
-        function initializeFaqAccordion() {
-            const contentDisplay = document.getElementById('content-display');
-            if (!contentDisplay) return;
-            const faqQuestions = contentDisplay.querySelectorAll('.faq-question');
-
-            faqQuestions.forEach(question => {
-                // Remove existing listeners to prevent duplicates if called multiple times
-                question.removeEventListener('click', toggleFaqAnswer);
-                // Add new listener
-                question.addEventListener('click', toggleFaqAnswer);
-            });
-        }
-
-        // Function to update reading progress bar (global scroll)
-        // Moved global as well, as loadContent calls it
-        function updateReadingProgressBar() {
-            const readingProgressBar = document.getElementById('reading-progress-bar');
-            if (!readingProgressBar) return; // Guard clause
-
-            const docHeight = document.documentElement.scrollHeight;
-            const viewportHeight = document.documentElement.clientHeight;
-            const scrolled = document.documentElement.scrollTop;
-
-            // Only show progress if content is scrollable
-            if (docHeight > viewportHeight) {
-                const progress = (scrolled / (docHeight - viewportHeight)) * 100;
-                readingProgressBar.style.width = progress + '%';
+          if (question === clickedQuestion) {
+            // Toggle the clicked item
+            question.classList.toggle("open");
+            answer.classList.toggle("open");
+            if (answer.classList.contains("open")) {
+              answer.style.maxHeight = answer.scrollHeight + "px";
+              question.setAttribute("aria-expanded", "true");
             } else {
-                readingProgressBar.style.width = '0%'; // No scrollbar, no progress
+              answer.style.maxHeight = "0";
+              question.setAttribute("aria-expanded", "false");
             }
+          } else {
+            // Close other open items
+            if (question.classList.contains("open")) {
+              question.classList.remove("open");
+              answer.classList.remove("open");
+              answer.style.maxHeight = "0";
+              question.setAttribute("aria-expanded", "false");
+            }
+          }
+        });
+      }
+
+      /**
+       * Initializes the FAQ accordion functionality.
+       * This function needs to be called every time new content is loaded, especially the FAQ page.
+       */
+      function initializeFaqAccordion() {
+        const contentDisplay = document.getElementById("content-display");
+        if (!contentDisplay) return;
+        const faqQuestions = contentDisplay.querySelectorAll(".faq-question");
+
+        faqQuestions.forEach((question) => {
+          // Remove existing listeners to prevent duplicates if called multiple times
+          question.removeEventListener("click", toggleFaqAnswer);
+          // Add new listener
+          question.addEventListener("click", toggleFaqAnswer);
+        });
+      }
+
+      // Function to update reading progress bar (global scroll)
+      // Moved global as well, as loadContent calls it
+      function updateReadingProgressBar() {
+        const readingProgressBar = document.getElementById(
+          "reading-progress-bar",
+        );
+        if (!readingProgressBar) return; // Guard clause
+
+        const docHeight = document.documentElement.scrollHeight;
+        const viewportHeight = document.documentElement.clientHeight;
+        const scrolled = document.documentElement.scrollTop;
+
+        // Only show progress if content is scrollable
+        if (docHeight > viewportHeight) {
+          const progress = (scrolled / (docHeight - viewportHeight)) * 100;
+          readingProgressBar.style.width = progress + "%";
+        } else {
+          readingProgressBar.style.width = "0%"; // No scrollbar, no progress
         }
+      }
 
+      // Function to load content into the main display area
+      // Moved global as well
+      function loadContent(pageId, updateHistory = true) {
+        const contentDisplay = document.getElementById("content-display");
+        const sidebarLinks = document.querySelectorAll(
+          "#sidebar-nav .sidebar-link",
+        );
+        const sidebar = document.getElementById("sidebar");
+        const sidebarOverlay = document.getElementById("sidebar-overlay");
 
-        // Function to load content into the main display area
-        // Moved global as well
-        function loadContent(pageId, updateHistory = true) {
-            const contentDisplay = document.getElementById('content-display');
-            const sidebarLinks = document.querySelectorAll('#sidebar-nav .sidebar-link');
-            const sidebar = document.getElementById('sidebar');
-            const sidebarOverlay = document.getElementById('sidebar-overlay');
+        if (!contentDisplay || !sidebarLinks.length) return; // Guard clause if DOM isn't ready
 
-            if (!contentDisplay || !sidebarLinks.length) return; // Guard clause if DOM isn't ready
+        if (documentationContent[pageId]) {
+          contentDisplay.innerHTML = documentationContent[pageId];
 
-            if (documentationContent[pageId]) {
-                contentDisplay.innerHTML = documentationContent[pageId];
+          // Remove all active and parent-active classes first
+          sidebarLinks.forEach((link) => {
+            link.classList.remove("active");
+            link.classList.remove("sidebar-parent-active");
+          });
 
-                // Remove all active and parent-active classes first
-                sidebarLinks.forEach(link => {
-                    link.classList.remove('active');
-                    link.classList.remove('sidebar-parent-active');
-                });
+          // Set active class for the clicked link
+          const activeLink = document.querySelector(
+            `[data-page-id="${pageId}"]`,
+          );
+          if (activeLink) {
+            activeLink.classList.add("active");
 
-                // Set active class for the clicked link
-                const activeLink = document.querySelector(`[data-page-id="${pageId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-
-                    // Highlight parent if it's a sub-command category
-                    const parentPageIds = {
-                        'commands-slash-moderation': 'commands-slash',
-                        'commands-slash-utility': 'commands-slash',
-                        'commands-slash-fun': 'commands-slash',
-                        'commands-slash-gifs': 'commands-slash',
-                        'commands-slash-image': 'commands-slash',
-                        'commands-slash-server-management': 'commands-slash',
-                        'commands-slash-support': 'commands-slash',
-                        'commands-slash-text-tools': 'commands-slash',
-                        'commands-slash-security': 'commands-slash',
-                        'commands-slash-tools': 'commands-slash',
-                        'commands-slash-other': 'commands-slash',
-                        'commands-slash-hire': 'commands-slash',
-                        'commands-slash-uncategorized': 'commands-slash',
-                        'commands-prefix-economy': 'commands-prefix',
-                        'commands-prefix-fun-games': 'commands-prefix',
-                        'commands-prefix-utility': 'commands-prefix',
-                        'commands-prefix-lookup': 'commands-prefix',
-                        'commands-prefix-math-conversion': 'commands-prefix',
-                        'commands-prefix-meta': 'commands-prefix',
-                        'other-features-detectors': 'other-features',
-                        'other-features-quotes-link': 'other-features'
-                    };
-
-                    const parentId = parentPageIds[pageId];
-                    if (parentId) {
-                        const parentLink = document.querySelector(`[data-page-id="${parentId}"]`);
-                        if (parentLink) {
-                            parentLink.classList.add('sidebar-parent-active');
-                        }
-                    }
-                }
-
-                // If the loaded content is the FAQ page, initialize its accordion
-                if (pageId === 'faqs') {
-                    initializeFaqAccordion();
-                }
-
-                // Re-attach event listeners for sidebar links within content (e.g., in FAQ answers)
-                contentDisplay.querySelectorAll('.sidebar-link-in-content').forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const targetPageId = e.target.dataset.pageId;
-                        if (targetPageId) {
-                            loadContent(targetPageId);
-                            if (updateHistory) {
-                                history.pushState(null, '', `#${targetPageId}`);
-                            }
-                        }
-                    });
-                });
-
-                // Update URL hash
-                if (updateHistory) {
-                    history.pushState(null, '', `#${pageId}`);
-                }
-
-                window.scrollTo({ top: 0, behavior: 'auto' }); // Scroll entire window to top
-
-                // Update global reading progress bar
-                setTimeout(updateReadingProgressBar, 0);
-
-
-            } else {
-                contentDisplay.innerHTML = `<p class="text-red-400">Content for "${pageId}" not found.</p>`;
-            }
-            // Close sidebar after loading content on mobile
-            if (window.innerWidth < 1024) {
-                if(sidebar && sidebarOverlay) {
-                    sidebar.classList.remove('open');
-                    sidebarOverlay.classList.remove('show');
-                }
-            }
-        }
-
-        // Function to set theme color
-        // Moved global as well
-        function setThemeColor(color) {
-            let primaryColor, primaryRgb, hoverColor, hoverRgb, borderColor;
-            switch (color) {
-                case 'purple':
-                    primaryColor = '#8B5CF6';
-                    primaryRgb = '139, 92, 246';
-                    hoverColor = '#7C3AED';
-                    hoverRgb = '124, 58, 237';
-                    borderColor = '#7F00FF';
-                    break;
-                case 'green':
-                    primaryColor = '#10B981';
-                    primaryRgb = '16, 185, 129';
-                    hoverColor = '#059669';
-                    hoverRgb = '5, 150, 105';
-                    borderColor = '#047857';
-                    break;
-                case 'blue':
-                    primaryColor = '#3B82F6';
-                    primaryRgb = '59, 130, 246';
-                    hoverColor = '#2563EB';
-                    hoverRgb = '37, 99, 235';
-                    borderColor = '#1D4ED8';
-                    break;
-                case 'pink':
-                    primaryColor = '#EC4899';
-                    primaryRgb = '236, 72, 153';
-                    hoverColor = '#DB2777';
-                    hoverRgb = '219, 39, 119';
-                    borderColor = '#BE185D';
-                    break;
-                case 'yellow':
-                    primaryColor = '#FFDA03';
-                    primaryRgb = '255, 218, 3';
-                    hoverColor = '#E6C200';
-                    hoverRgb = '230, 194, 0';
-                    borderColor = '#E6C200';
-                    break;
-                default: // Default to purple
-                    primaryColor = '#8B5CF6';
-                    primaryRgb = '139, 92, 246';
-                    hoverColor = '#7C3AED';
-                    hoverRgb = '124, 58, 237';
-                    borderColor = '#7F00FF';
-                    break;
-            }
-            document.documentElement.style.setProperty('--theme-primary', primaryColor);
-            document.documentElement.style.setProperty('--theme-primary-rgb', primaryRgb);
-            document.documentElement.style.setProperty('--theme-hover', hoverColor);
-            document.documentElement.style.setProperty('--theme-hover-rgb', hoverRgb);
-            document.documentElement.style.setProperty('--theme-border', borderColor);
-
-            // Update active class for swatches
-            document.querySelectorAll('.color-swatch').forEach(swatch => {
-                swatch.classList.remove('active');
-            });
-            const activeSwatch = document.querySelector(`.color-swatch[data-color="${color}"]`);
-            if (activeSwatch) {
-                activeSwatch.classList.add('active');
-            }
-
-            localStorage.setItem('themeColor', color); // Persist preference
-        }
-
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- DOM CONTENT LOADED ---
-            // This listener now ONLY attaches event listeners and runs initial setup
-            // that depends on the DOM being ready. The core functions are global.
-
-            const sidebarNav = document.getElementById('sidebar-nav');
-            const searchInputMain = document.getElementById('search-input-main');
-            const searchOverlay = document.getElementById('search-overlay');
-            const searchInputModal = document.getElementById('search-input-modal');
-            const searchResultsContainer = document.getElementById('search-results');
-            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-
-            // Settings elements
-            const settingsButton = document.getElementById('settings-button');
-            const settingsDropdown = document.getElementById('settings-dropdown');
-            const colorSwatches = document.querySelectorAll('.color-swatch');
-
-            // Hamburger menu elements
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const closeSidebarBtn = document.getElementById('close-sidebar-btn');
-            const sidebar = document.getElementById('sidebar');
-            const sidebarOverlay = document.getElementById('sidebar-overlay');
-
-
-            // Function to show/hide search overlay
-            function showSearchOverlay() {
-                searchOverlay.classList.remove('hidden');
-                const mainSearchValue = searchInputMain.value;
-                searchInputModal.value = mainSearchValue;
-                searchInputModal.focus();
-                filterSearchResultsModal(mainSearchValue);
-            }
-
-            function hideSearchOverlay() {
-                searchOverlay.classList.add('hidden');
-                searchInputModal.value = ''; // Clear modal search input
-                searchResultsContainer.innerHTML = ''; // Clear modal results
-            }
-
-            // Listen for scroll events on the window (global scroll)
-            window.addEventListener('scroll', updateReadingProgressBar);
-            window.addEventListener('resize', updateReadingProgressBar); // Update on resize too
-
-            // Event listener for sidebar navigation clicks
-            sidebarNav.addEventListener('click', (event) => {
-                event.preventDefault();
-                const targetLink = event.target.closest('.sidebar-link');
-                if (targetLink) {
-                    const pageId = targetLink.dataset.pageId;
-                    loadContent(pageId); // updateHistory is true by default
-                }
-            });
-
-            // Handle browser back/forward buttons
-            window.addEventListener('popstate', (event) => {
-                const pageIdFromHash = window.location.hash.substring(1); // Remove '#'
-                if (pageIdFromHash) {
-                    loadContent(pageIdFromHash, false); // Don't update history again
-                } else {
-                    loadContent('getting-started', false); // Default if no hash
-                }
-            });
-
-            // Keyboard shortcut (Ctrl + K or Cmd + K)
-            document.addEventListener('keydown', (event) => {
-                if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
-                    event.preventDefault();
-                    showSearchOverlay();
-                } else if (event.key === 'Escape' && !searchOverlay.classList.contains('hidden')) {
-                    hideSearchOverlay();
-                } else if (event.key === 'Escape' && sidebar.classList.contains('open')) {
-                    sidebar.classList.remove('open');
-                    sidebarOverlay.classList.remove('show');
-                }
-            });
-
-            // Click main search input to open modal
-            searchInputMain.addEventListener('click', showSearchOverlay);
-
-            // Click outside modal to close it
-            searchOverlay.addEventListener('click', (event) => {
-                if (event.target === searchOverlay) {
-                    hideSearchOverlay();
-                }
-            });
-
-            // Function to filter and display search results in the modal popup
-            function filterSearchResultsModal(searchTerm) {
-                searchResultsContainer.innerHTML = ''; // Clear previous results
-                const lowerCaseSearchTerm = searchTerm.toLowerCase();
-
-                const matchingResults = [];
-                for (const pageId in documentationContent) {
-                    const content = documentationContent[pageId];
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = content;
-                    const titleElement = tempDiv.querySelector('h2');
-                    const title = titleElement ? titleElement.textContent : pageId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-
-                    // Get a snippet of the content
-                    const snippetText = tempDiv.textContent.replace(/\s+/g, ' ').trim(); // Remove extra whitespace
-                    let snippet = '';
-                    const snippetLength = 150; // Max length of snippet
-                    const startIndex = snippetText.toLowerCase().indexOf(lowerCaseSearchTerm);
-
-                    if (startIndex !== -1 && lowerCaseSearchTerm.length > 0) {
-                        // If search term found, show snippet around it
-                        const start = Math.max(0, startIndex - (snippetLength / 2));
-                        const end = Math.min(snippetText.length, startIndex + lowerCaseSearchTerm.length + (snippetLength / 2));
-                        snippet = snippetText.substring(start, end);
-                        if (start > 0) snippet = '...' + snippet;
-                        if (end < snippetText.length) snippet = snippet + '...';
-                    } else {
-                        // If no search term or empty, just take the beginning
-                        snippet = snippetText.substring(0, snippetLength);
-                        if (snippetText.length > snippetLength) snippet += '...';
-                    }
-
-
-                    if (title.toLowerCase().includes(lowerCaseSearchTerm) || content.toLowerCase().includes(lowerCaseSearchTerm)) {
-                        matchingResults.push({ id: pageId, title: title, snippet: snippet });
-                    }
-                }
-
-                if (matchingResults.length > 0) {
-                    matchingResults.forEach(result => {
-                        const resultDiv = document.createElement('div');
-                        resultDiv.classList.add('search-result-item');
-                        resultDiv.innerHTML = `<div class="title">${result.title}</div><div class="snippet">${result.snippet}</div>`;
-                        resultDiv.addEventListener('click', () => {
-                            loadContent(result.id);
-                            hideSearchOverlay(); // Close popup after selection
-                        });
-                        searchResultsContainer.appendChild(resultDiv);
-                    });
-                } else {
-                    const noResultsDiv = document.createElement('div');
-                    noResultsDiv.classList.add('p-2', 'text-gray-400');
-                    noResultsDiv.textContent = 'No results found.';
-                    searchResultsContainer.appendChild(noResultsDiv);
-                }
-            }
-
-            // Event listener for typing in modal search input
-            searchInputModal.addEventListener('input', (event) => {
-                filterSearchResultsModal(event.target.value);
-            });
-
-            // Scroll to top button logic
-            window.onscroll = function() {
-                // Check scroll position of the window
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollToTopBtn.classList.add('show');
-                } else {
-                    scrollToTopBtn.classList.remove('show');
-                }
+            // Highlight parent if it's a sub-command category
+            const parentPageIds = {
+              "commands-slash-moderation": "commands-slash",
+              "commands-slash-utility": "commands-slash",
+              "commands-slash-fun": "commands-slash",
+              "commands-slash-gifs": "commands-slash",
+              "commands-slash-image": "commands-slash",
+              "commands-slash-server-management": "commands-slash",
+              "commands-slash-support": "commands-slash",
+              "commands-slash-text-tools": "commands-slash",
+              "commands-slash-security": "commands-slash",
+              "commands-slash-tools": "commands-slash",
+              "commands-slash-other": "commands-slash",
+              "commands-slash-hire": "commands-slash",
+              "commands-slash-uncategorized": "commands-slash",
+              "commands-prefix-economy": "commands-prefix",
+              "commands-prefix-fun-games": "commands-prefix",
+              "commands-prefix-utility": "commands-prefix",
+              "commands-prefix-lookup": "commands-prefix",
+              "commands-prefix-math-conversion": "commands-prefix",
+              "commands-prefix-meta": "commands-prefix",
+              "other-features-detectors": "other-features",
+              "other-features-quotes-link": "other-features",
             };
 
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // Settings Dropdown and Theme Logic
-            settingsButton.addEventListener('click', (event) => {
-                event.stopPropagation(); // Prevent click from closing dropdown immediately
-                settingsDropdown.classList.toggle('show');
-            });
-
-            // Close the dropdown if the user clicks outside of it
-            window.addEventListener('click', (event) => {
-                if (!event.target.matches('#settings-button') && !event.target.closest('.settings-dropdown-content')) {
-                    if (settingsDropdown.classList.contains('show')) {
-                        settingsDropdown.classList.remove('show');
-                    }
-                }
-            });
-
-            // Event listeners for color swatches
-            colorSwatches.forEach(swatch => {
-                swatch.addEventListener('click', () => {
-                    const color = swatch.dataset.color;
-                    setThemeColor(color);
-                });
-            });
-
-
-            // Mobile sidebar toggle logic
-            hamburgerBtn.addEventListener('click', () => {
-                sidebar.classList.add('open');
-                sidebar.classList.remove('hidden'); // Ensure it's not hidden by the initial setup
-                sidebarOverlay.classList.add('show');
-            });
-
-            closeSidebarBtn.addEventListener('click', () => {
-                sidebar.classList.remove('open');
-                sidebarOverlay.classList.remove('show');
-                // Re-add hidden class after transition for mobile if not desktop
-                if (window.innerWidth < 1024) {
-                    setTimeout(() => {
-                        if (!sidebar.classList.contains('open')) { // Extra check
-                            sidebar.classList.add('hidden');
-                        }
-                    }, 300); // Match CSS transition duration
-                }
-            });
-
-            sidebarOverlay.addEventListener('click', () => {
-                sidebar.classList.remove('open');
-                sidebarOverlay.classList.remove('show');
-                // Re-add hidden class after transition for mobile if not desktop
-                if (window.innerWidth < 1024) {
-                    setTimeout(() => {
-                        if (!sidebar.classList.contains('open')) { // Extra check
-                             sidebar.classList.add('hidden');
-                        }
-                    }, 300); // Match CSS transition duration
-                }
-            });
-
-            // Handle resize to ensure correct sidebar visibility on desktop
-            window.addEventListener('resize', () => {
-                if (window.innerWidth >= 1024) { // Desktop view
-                    sidebar.classList.remove('hidden');
-                    sidebar.classList.remove('open'); // Ensure it's not in mobile open state
-                    sidebarOverlay.classList.remove('show'); // Hide overlay
-                } else { // Mobile view
-                    // If the sidebar is not explicitly open, keep it hidden
-                    if (!sidebar.classList.contains('open')) {
-                        sidebar.classList.add('hidden');
-                    }
-                }
-            });
-
-            // Initial setup for sidebar visibility based on screen size
-            if (window.innerWidth >= 1024) {
-                sidebar.classList.remove('hidden'); // Ensure sidebar is visible on desktop initially
-            } else {
-                sidebar.classList.add('hidden'); // Hide sidebar on mobile initially
+            const parentId = parentPageIds[pageId];
+            if (parentId) {
+              const parentLink = document.querySelector(
+                `[data-page-id="${parentId}"]`,
+              );
+              if (parentLink) {
+                parentLink.classList.add("sidebar-parent-active");
+              }
             }
+          }
 
+          // If the loaded content is the FAQ page, initialize its accordion
+          if (pageId === "faqs") {
+            initializeFaqAccordion();
+          }
 
-            // Load saved preferences on startup
-            const savedThemeColor = localStorage.getItem('themeColor');
-            if (savedThemeColor) {
-                setThemeColor(savedThemeColor);
-            } else {
-                // Set default theme to purple if no preference is saved
-                setThemeColor('purple');
-            }
+          // Re-attach event listeners for sidebar links within content (e.g., in FAQ answers)
+          contentDisplay
+            .querySelectorAll(".sidebar-link-in-content")
+            .forEach((link) => {
+              link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const targetPageId = e.target.dataset.pageId;
+                if (targetPageId) {
+                  loadContent(targetPageId);
+                  if (updateHistory) {
+                    history.pushState(null, "", `#${targetPageId}`);
+                  }
+                }
+              });
+            });
 
-            // --- CONTENT LOAD IS MOVED TO window.onload ---
-            // The initial load call is no longer here.
+          // Update URL hash
+          if (updateHistory) {
+            history.pushState(null, "", `#${pageId}`);
+          }
+
+          window.scrollTo({ top: 0, behavior: "auto" }); // Scroll entire window to top
+
+          // Update global reading progress bar
+          setTimeout(updateReadingProgressBar, 0);
+        } else {
+          contentDisplay.innerHTML = `<p class="text-red-400">Content for "${pageId}" not found.</p>`;
+        }
+        // Close sidebar after loading content on mobile
+        if (window.innerWidth < 1024) {
+          if (sidebar && sidebarOverlay) {
+            sidebar.classList.remove("open");
+            sidebarOverlay.classList.remove("show");
+          }
+        }
+      }
+
+      // Function to set theme color
+      // Moved global as well
+      function setThemeColor(color) {
+        let primaryColor, primaryRgb, hoverColor, hoverRgb, borderColor;
+        switch (color) {
+          case "purple":
+            primaryColor = "#8B5CF6";
+            primaryRgb = "139, 92, 246";
+            hoverColor = "#7C3AED";
+            hoverRgb = "124, 58, 237";
+            borderColor = "#7F00FF";
+            break;
+          case "green":
+            primaryColor = "#10B981";
+            primaryRgb = "16, 185, 129";
+            hoverColor = "#059669";
+            hoverRgb = "5, 150, 105";
+            borderColor = "#047857";
+            break;
+          case "blue":
+            primaryColor = "#3B82F6";
+            primaryRgb = "59, 130, 246";
+            hoverColor = "#2563EB";
+            hoverRgb = "37, 99, 235";
+            borderColor = "#1D4ED8";
+            break;
+          case "pink":
+            primaryColor = "#EC4899";
+            primaryRgb = "236, 72, 153";
+            hoverColor = "#DB2777";
+            hoverRgb = "219, 39, 119";
+            borderColor = "#BE185D";
+            break;
+          case "yellow":
+            primaryColor = "#FFDA03";
+            primaryRgb = "255, 218, 3";
+            hoverColor = "#E6C200";
+            hoverRgb = "230, 194, 0";
+            borderColor = "#E6C200";
+            break;
+          default: // Default to purple
+            primaryColor = "#8B5CF6";
+            primaryRgb = "139, 92, 246";
+            hoverColor = "#7C3AED";
+            hoverRgb = "124, 58, 237";
+            borderColor = "#7F00FF";
+            break;
+        }
+        document.documentElement.style.setProperty(
+          "--theme-primary",
+          primaryColor,
+        );
+        document.documentElement.style.setProperty(
+          "--theme-primary-rgb",
+          primaryRgb,
+        );
+        document.documentElement.style.setProperty("--theme-hover", hoverColor);
+        document.documentElement.style.setProperty(
+          "--theme-hover-rgb",
+          hoverRgb,
+        );
+        document.documentElement.style.setProperty(
+          "--theme-border",
+          borderColor,
+        );
+
+        // Update active class for swatches
+        document.querySelectorAll(".color-swatch").forEach((swatch) => {
+          swatch.classList.remove("active");
+        });
+        const activeSwatch = document.querySelector(
+          `.color-swatch[data-color="${color}"]`,
+        );
+        if (activeSwatch) {
+          activeSwatch.classList.add("active");
+        }
+
+        localStorage.setItem("themeColor", color); // Persist preference
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- DOM CONTENT LOADED ---
+        // This listener now ONLY attaches event listeners and runs initial setup
+        // that depends on the DOM being ready. The core functions are global.
+
+        const sidebarNav = document.getElementById("sidebar-nav");
+        const searchInputMain = document.getElementById("search-input-main");
+        const searchOverlay = document.getElementById("search-overlay");
+        const searchInputModal = document.getElementById("search-input-modal");
+        const searchResultsContainer =
+          document.getElementById("search-results");
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        // Settings elements
+        const settingsButton = document.getElementById("settings-button");
+        const settingsDropdown = document.getElementById("settings-dropdown");
+        const colorSwatches = document.querySelectorAll(".color-swatch");
+
+        // Hamburger menu elements
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const closeSidebarBtn = document.getElementById("close-sidebar-btn");
+        const sidebar = document.getElementById("sidebar");
+        const sidebarOverlay = document.getElementById("sidebar-overlay");
+
+        // Function to show/hide search overlay
+        function showSearchOverlay() {
+          searchOverlay.classList.remove("hidden");
+          const mainSearchValue = searchInputMain.value;
+          searchInputModal.value = mainSearchValue;
+          searchInputModal.focus();
+          filterSearchResultsModal(mainSearchValue);
+        }
+
+        function hideSearchOverlay() {
+          searchOverlay.classList.add("hidden");
+          searchInputModal.value = ""; // Clear modal search input
+          searchResultsContainer.innerHTML = ""; // Clear modal results
+        }
+
+        // Listen for scroll events on the window (global scroll)
+        window.addEventListener("scroll", updateReadingProgressBar);
+        window.addEventListener("resize", updateReadingProgressBar); // Update on resize too
+
+        // Event listener for sidebar navigation clicks
+        sidebarNav.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetLink = event.target.closest(".sidebar-link");
+          if (targetLink) {
+            const pageId = targetLink.dataset.pageId;
+            loadContent(pageId); // updateHistory is true by default
+          }
         });
 
-        // --- NEW ---
-        // Load initial content AFTER everything (images, scripts, etc.) is loaded.
-        // This is the most robust way to prevent the race condition.
-        window.addEventListener('load', () => {
-            const initialPageId = window.location.hash.substring(1) || 'getting-started';
-            loadContent(initialPageId, false); // Don't push state on initial load
+        // Handle browser back/forward buttons
+        window.addEventListener("popstate", (event) => {
+          const pageIdFromHash = window.location.hash.substring(1); // Remove '#'
+          if (pageIdFromHash) {
+            loadContent(pageIdFromHash, false); // Don't update history again
+          } else {
+            loadContent("getting-started", false); // Default if no hash
+          }
         });
+
+        // Keyboard shortcut (Ctrl + K or Cmd + K)
+        document.addEventListener("keydown", (event) => {
+          if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+            event.preventDefault();
+            showSearchOverlay();
+          } else if (
+            event.key === "Escape" &&
+            !searchOverlay.classList.contains("hidden")
+          ) {
+            hideSearchOverlay();
+          } else if (
+            event.key === "Escape" &&
+            sidebar.classList.contains("open")
+          ) {
+            sidebar.classList.remove("open");
+            sidebarOverlay.classList.remove("show");
+          }
+        });
+
+        // Click main search input to open modal
+        searchInputMain.addEventListener("click", showSearchOverlay);
+
+        // Click outside modal to close it
+        searchOverlay.addEventListener("click", (event) => {
+          if (event.target === searchOverlay) {
+            hideSearchOverlay();
+          }
+        });
+
+        // Function to filter and display search results in the modal popup
+        function filterSearchResultsModal(searchTerm) {
+          searchResultsContainer.innerHTML = ""; // Clear previous results
+          const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+          const matchingResults = [];
+          for (const pageId in documentationContent) {
+            const content = documentationContent[pageId];
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = content;
+            const titleElement = tempDiv.querySelector("h2");
+            const title = titleElement
+              ? titleElement.textContent
+              : pageId
+                  .replace(/-/g, " ")
+                  .replace(/\b\w/g, (l) => l.toUpperCase());
+
+            // Get a snippet of the content
+            const snippetText = tempDiv.textContent.replace(/\s+/g, " ").trim(); // Remove extra whitespace
+            let snippet = "";
+            const snippetLength = 150; // Max length of snippet
+            const startIndex = snippetText
+              .toLowerCase()
+              .indexOf(lowerCaseSearchTerm);
+
+            if (startIndex !== -1 && lowerCaseSearchTerm.length > 0) {
+              // If search term found, show snippet around it
+              const start = Math.max(0, startIndex - snippetLength / 2);
+              const end = Math.min(
+                snippetText.length,
+                startIndex + lowerCaseSearchTerm.length + snippetLength / 2,
+              );
+              snippet = snippetText.substring(start, end);
+              if (start > 0) snippet = "..." + snippet;
+              if (end < snippetText.length) snippet = snippet + "...";
+            } else {
+              // If no search term or empty, just take the beginning
+              snippet = snippetText.substring(0, snippetLength);
+              if (snippetText.length > snippetLength) snippet += "...";
+            }
+
+            if (
+              title.toLowerCase().includes(lowerCaseSearchTerm) ||
+              content.toLowerCase().includes(lowerCaseSearchTerm)
+            ) {
+              matchingResults.push({
+                id: pageId,
+                title: title,
+                snippet: snippet,
+              });
+            }
+          }
+
+          if (matchingResults.length > 0) {
+            matchingResults.forEach((result) => {
+              const resultDiv = document.createElement("div");
+              resultDiv.classList.add("search-result-item");
+              resultDiv.innerHTML = `<div class="title">${result.title}</div><div class="snippet">${result.snippet}</div>`;
+              resultDiv.addEventListener("click", () => {
+                loadContent(result.id);
+                hideSearchOverlay(); // Close popup after selection
+              });
+              searchResultsContainer.appendChild(resultDiv);
+            });
+          } else {
+            const noResultsDiv = document.createElement("div");
+            noResultsDiv.classList.add("p-2", "text-gray-400");
+            noResultsDiv.textContent = "No results found.";
+            searchResultsContainer.appendChild(noResultsDiv);
+          }
+        }
+
+        // Event listener for typing in modal search input
+        searchInputModal.addEventListener("input", (event) => {
+          filterSearchResultsModal(event.target.value);
+        });
+
+        // Scroll to top button logic
+        window.onscroll = function () {
+          // Check scroll position of the window
+          if (
+            document.body.scrollTop > 200 ||
+            document.documentElement.scrollTop > 200
+          ) {
+            scrollToTopBtn.classList.add("show");
+          } else {
+            scrollToTopBtn.classList.remove("show");
+          }
+        };
+
+        scrollToTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Settings Dropdown and Theme Logic
+        settingsButton.addEventListener("click", (event) => {
+          event.stopPropagation(); // Prevent click from closing dropdown immediately
+          settingsDropdown.classList.toggle("show");
+        });
+
+        // Close the dropdown if the user clicks outside of it
+        window.addEventListener("click", (event) => {
+          if (
+            !event.target.matches("#settings-button") &&
+            !event.target.closest(".settings-dropdown-content")
+          ) {
+            if (settingsDropdown.classList.contains("show")) {
+              settingsDropdown.classList.remove("show");
+            }
+          }
+        });
+
+        // Event listeners for color swatches
+        colorSwatches.forEach((swatch) => {
+          swatch.addEventListener("click", () => {
+            const color = swatch.dataset.color;
+            setThemeColor(color);
+          });
+        });
+
+        // Mobile sidebar toggle logic
+        hamburgerBtn.addEventListener("click", () => {
+          sidebar.classList.add("open");
+          sidebar.classList.remove("hidden"); // Ensure it's not hidden by the initial setup
+          sidebarOverlay.classList.add("show");
+        });
+
+        closeSidebarBtn.addEventListener("click", () => {
+          sidebar.classList.remove("open");
+          sidebarOverlay.classList.remove("show");
+          // Re-add hidden class after transition for mobile if not desktop
+          if (window.innerWidth < 1024) {
+            setTimeout(() => {
+              if (!sidebar.classList.contains("open")) {
+                // Extra check
+                sidebar.classList.add("hidden");
+              }
+            }, 300); // Match CSS transition duration
+          }
+        });
+
+        sidebarOverlay.addEventListener("click", () => {
+          sidebar.classList.remove("open");
+          sidebarOverlay.classList.remove("show");
+          // Re-add hidden class after transition for mobile if not desktop
+          if (window.innerWidth < 1024) {
+            setTimeout(() => {
+              if (!sidebar.classList.contains("open")) {
+                // Extra check
+                sidebar.classList.add("hidden");
+              }
+            }, 300); // Match CSS transition duration
+          }
+        });
+
+        // Handle resize to ensure correct sidebar visibility on desktop
+        window.addEventListener("resize", () => {
+          if (window.innerWidth >= 1024) {
+            // Desktop view
+            sidebar.classList.remove("hidden");
+            sidebar.classList.remove("open"); // Ensure it's not in mobile open state
+            sidebarOverlay.classList.remove("show"); // Hide overlay
+          } else {
+            // Mobile view
+            // If the sidebar is not explicitly open, keep it hidden
+            if (!sidebar.classList.contains("open")) {
+              sidebar.classList.add("hidden");
+            }
+          }
+        });
+
+        // Initial setup for sidebar visibility based on screen size
+        if (window.innerWidth >= 1024) {
+          sidebar.classList.remove("hidden"); // Ensure sidebar is visible on desktop initially
+        } else {
+          sidebar.classList.add("hidden"); // Hide sidebar on mobile initially
+        }
+
+        // Load saved preferences on startup
+        const savedThemeColor = localStorage.getItem("themeColor");
+        if (savedThemeColor) {
+          setThemeColor(savedThemeColor);
+        } else {
+          // Set default theme to purple if no preference is saved
+          setThemeColor("purple");
+        }
+
+        // --- CONTENT LOAD IS MOVED TO window.onload ---
+        // The initial load call is no longer here.
+      });
+
+      // --- NEW ---
+      // Load initial content AFTER everything (images, scripts, etc.) is loaded.
+      // This is the most robust way to prevent the race condition.
+      window.addEventListener("load", () => {
+        const initialPageId =
+          window.location.hash.substring(1) || "getting-started";
+        loadContent(initialPageId, false); // Don't push state on initial load
+      });
     </script>
-</body>
+  </body>
 </html>
