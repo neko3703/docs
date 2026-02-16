@@ -1388,6 +1388,11 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!autorole set @Role</code> - Set the autorole for new members. (Server admins only)</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!autorole remove @Role</code> - Remove a role from autorole. (Server admins only)</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!autorole show</code> - Show the current autorole. (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!nickmod</code> - View AutoNick status (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!nickmod toggle on/off</code> - Enable or disable AutoNick. (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!nickmod add <words></code> - Block username keywords. (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!nickmod remove <words></code> - Unblock username keywords. (Server admins only)</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">!nickmod list</code> - List blocked username keywords. (Server admins only)</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!linkblocker</code> - Shows the help menu and current status. (Server admins only)</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!linkblocker enable</code> - Enable link blocker. (Server admins only)</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!linkblocker disable</code> - Disable link blocker. (Server admins only)</li>
@@ -1828,31 +1833,61 @@
 
                 
                 <div class="space-y-8">
-                    
+                <!-- Release Card: v2.7.6 -->
+                <div class="card border-l-4 border-[var(--theme-primary)]">
+                    <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.6</h3>
+                    <span class="text-sm text-gray-400">
+                        <strong>Released on:</strong> February 16, 2026 (7:22 AM)
+                    </span>
+
+                    <div class="mt-3">
+                        <div class="changelog-tag changelog-tag-new">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                class="mr-1.5">
+                                <path d="M10.268 21a2 2 0 0 0 3.464 0"/>
+                                <path d="M15 8h6"/>
+                                <path d="M18 5v6"/>
+                                <path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332"/>
+                            </svg>
+                            NEW FEATURE
+                        </div>
+
+                        <p class="text-gray-300 mt-1">
+                            <strong class="text-yellow-400">AutoNick Moderation System</strong><br>
+                            • Introduced a <strong>server-specific automatic nickname moderation system</strong>.<br>
+                            • Automatically renames users whose usernames contain <strong>blocked keywords</strong>.<br>
+                            • Uses <strong>clean, random, non-impersonating nicknames</strong> for replacements.<br>
+                            • Can be <strong>enabled or disabled per server</strong> using prefix commands.<br>
+                            • Admins can <strong>add, remove, and list multiple blocked keywords</strong> at once.<br>
+                        </p>
+                    </div>
+                </div>
+
                     <!-- Release Card: v2.7.6 -->
-<div class="card border-l-4 border-[var(--theme-primary)]">
-    <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.6</h3>
-    <span class="text-sm text-gray-400">
-        <strong>Released on:</strong> February 16, 2026 (7:22 AM)
-    </span>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold text-white mb-2">Version 2.7.6</h3>
+                        <span class="text-sm text-gray-400">
+                            <strong>Released on:</strong> February 16, 2026 (7:22 AM)
+                        </span>
 
-    <div class="mt-3">
-        <div class="changelog-tag changelog-tag-new">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M15 8h6"/><path d="M18 5v6"/><path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332"/></svg>
-            NEW FEATURE
-        </div>
+                        <div class="mt-3">
+                            <div class="changelog-tag changelog-tag-new">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M15 8h6"/><path d="M18 5v6"/><path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332"/></svg>
+                                NEW FEATURE
+                            </div>
 
-
-        <p class="text-gray-300 mt-1">
-            <strong class="text-yellow-400">Configurable Link Blocker System</strong><br>
-            • Introduced a <strong>server-wide link blocking system</strong> configurable by administrators.<br>
-            • Link blocking can be <strong>enabled or disabled per server</strong> using prefix commands.<br>
-            • Admins can <strong>allow specific roles</strong> to bypass link restrictions.<br>
-            • Supports both <strong>role mentions and raw role IDs</strong> for configuration.<br>
-            • Multiple roles can be <strong>added or removed in a single command</strong>.<br>
-        </p>
-    </div>
-</div>
+                            <p class="text-gray-300 mt-1">
+                                <strong class="text-yellow-400">Configurable Link Blocker System</strong><br>
+                                • Introduced a <strong>server-wide link blocking system</strong> configurable by administrators.<br>
+                                • Link blocking can be <strong>enabled or disabled per server</strong> using prefix commands.<br>
+                                • Admins can <strong>allow specific roles</strong> to bypass link restrictions.<br>
+                                • Supports both <strong>role mentions and raw role IDs</strong> for configuration.<br>
+                                • Multiple roles can be <strong>added or removed in a single command</strong>.<br>
+                            </p>
+                        </div>
+                    </div>
 
                     <!-- Release Card: v2.7.5 -->
                     <div class="card">
