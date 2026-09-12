@@ -1204,6 +1204,11 @@
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/8ball</code> - Ask a question to decide something.</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/joke</code> - Shares a joke.</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">/movie</code> - Suggests a movie.</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">/rank</code> - Check your or another user's level or XP.</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">/level-leaderboard</code> - View the top 10 users by XP in the current server.</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">/profile view</code> - View a user's profile.</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">/profile delete</code> - Permanently delete your profile.</li>
+                    <li><code class="code-block inline-block px-2 py-1 text-sm">/profile edit</code> - Edit your profile.</li>
                 </ul>
             `,
         "commands-slash-gifs": `
@@ -1830,6 +1835,63 @@
 
                 
                 <div class="space-y-8">
+                
+                <!-- Release Card: v2.8.2 -->
+                <div class="card border-l-4 border-[var(--theme-primary)]">
+                    <h3 class="text-xl font-semibold text-white mb-2">Version 2.8.2</h3>
+                    <span class="text-sm text-gray-400">
+                        <strong>Released on:</strong> September 12, 2026 (8:21 AM)
+                    </span>
+                
+                    <div class="mt-3">
+                        <div class="changelog-tag changelog-tag-new">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M15 8h6"/><path d="M18 5v6"/><path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332"/></svg>
+                            NEW FEATURE
+                        </div>
+                
+                        <p class="text-gray-300 mt-1">
+                            <strong class="text-yellow-400">Custom Profiles System</strong><br>
+                            • Introduced a complete <strong>custom profiles system</strong> — create and personalize your own profile card in the server.<br>
+                            • <strong>/profile edit</strong> — opens a <strong>modal popup form</strong> to set your profile info. Choose between two sections:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;— <strong>📝 Basic Info:</strong> Display Name, Bio, Pronouns, Birthday, Favorite Color.<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;— <strong>🔗 Socials & Extras:</strong> Social Links, Custom Fields, Banner Image, Embed Theme Color.<br>
+                            • <strong>/profile view [@user]</strong> — view your own or anyone else's profile as a <strong>rich embed card</strong> with avatar, bio, socials, and custom fields.<br>
+                            • <strong>/profile delete</strong> — permanently delete your profile with a <strong>confirmation prompt</strong> (danger button + cancel) to prevent accidents.<br>
+                            • <strong>Custom embed theme color</strong> — set your own hex color to personalize how your profile embed looks.<br>
+                            • <strong>Banner image support</strong> — add a custom banner URL displayed on your profile card.<br>
+                            • <strong>Flexible custom fields</strong> — add any key:value pairs (e.g., Hobby:Coding | Fav Game:Minecraft).<br>
+                            • All profile data stored in <strong>Google Sheets</strong> with full CRUD support (create, read, update, delete).<br>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Release Card: v2.8.1 -->
+                <div class="card border-l-4 border-[var(--theme-primary)]">
+                    <h3 class="text-xl font-semibold text-white mb-2">Version 2.8.1</h3>
+                    <span class="text-sm text-gray-400">
+                        <strong>Released on:</strong> September 12, 2026 (4:51 AM)
+                    </span>
+                
+                    <div class="mt-3">
+                        <div class="changelog-tag changelog-tag-new">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M15 8h6"/><path d="M18 5v6"/><path d="M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332"/></svg>
+                            NEW FEATURE
+                        </div>
+                
+                        <p class="text-gray-300 mt-1">
+                            <strong class="text-yellow-400">Leveling & XP System</strong><br>
+                            • Introduced a complete <strong>leveling and XP system</strong> — earn XP by chatting in the server.<br>
+                            • Users earn <strong>15–25 random XP per message</strong> with a 60-second cooldown to prevent spam.<br>
+                            • <strong>Minimum message length</strong> requirement — short messages no longer earn XP.<br>
+                            • Dynamic <strong>level-up announcements</strong> with tier-based colors, progress bars, and server rank.<br>
+                            • Special <strong>milestone embeds</strong> for key levels (5, 10, 20, 30, 50, 75, 100) with unique emojis and colors.<br>
+                            • <strong>/rank command</strong> — view your level, XP, tier, progress bar, and server rank in a rich profile embed.<br>
+                            • <strong>/level-leaderboard command</strong> — view the top 10 members with podium-style formatting and server stats.<br>
+                            • <strong>8-tier ranking system</strong>: 🌱 Newcomer → 🎯 Apprentice → ✨ Intermediate → ⚡ Advanced → 🔥 Expert → 🌟 Master → 💎 Diamond → 👑 Legendary.<br>
+                            • All XP data stored in <strong>Google Sheets</strong> with built-in caching for performance.<br>
+                        </p>
+                    </div>
+                </div>
 
                 <!-- Release Card: v2.7.8 -->
                 <div class="card border-l-4 border-[var(--theme-primary)]">
