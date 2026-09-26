@@ -62,7 +62,7 @@ const documentationContent = {
 
                 <h3 class="text-2xl font-medium text-white mb-3">1. Inviting the Bot</h3>
                 <p class="text-gray-300 mb-8">
-                    To invite Neko Code to your server, click the "Invite Neko Code" button at the top of this page or refer to the <a class="text-blue-400 hover:underline">Getting Started</a> section.
+                    To invite Neko Code to your server, click the "Invite Neko Code" button at the top of this page or refer to the <a data-page-id="getting-started" class="text-blue-400 hover:underline sidebar-link-in-content">Getting Started</a> section.
                     Make sure you have "Manage Server" permissions on the server you wish to invite it to.
                 </p>
 
