@@ -401,7 +401,6 @@ const documentationContent = {
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!block-info</code> - Gives information about a Minecraft block.</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!mcserver</code> - Checks the status of a Minecraft server.</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!nasa</code> - Fetches NASA's Astronomy Picture of the Day.</li>
-                    <li><code class="code-block inline-block px-2 py-1 text-sm">!mars</code> - Gets Mars images.</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!gita</code> - Fetches a verse from the Bhagavad Gita.</li>
                     <li><code class="code-block inline-block px-2 py-1 text-sm">!repo</code> - Search a github repository.</li>
                 </ul>
