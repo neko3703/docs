@@ -68,11 +68,11 @@ const documentationContent = {
 
                 <h3 class="text-2xl font-medium text-white mb-3">2. Bot Prefixes</h3>
                 <p class="text-gray-300 mb-4">
-                    Neko Code's prefixes are <strong>not customizable</strong>. You can use any of the following prefixes before a command: <code class="code-block inline-block px-2 py-1 text-sm">!</code>, <code class="code-block inline-block px-2 py-1 text-sm">$</code>, <code class="code-block inline-block px-2 py-1 text-sm">?</code>, <code class="code-block inline-block px-2 py-1 text-sm">></code>.
+                    Neko Code's prefix is <strong>not customizable</strong>. The bot uses <strong>@mention</strong> as prefix: <code class="code-block inline-block px-2 py-1 text-sm">!</code>, <code class="code-block inline-block px-2 py-1 text-sm">$</code>, <code class="code-block inline-block px-2 py-1 text-sm">?</code>, <code class="code-block inline-block px-2 py-1 text-sm">></code>.
                 </p>
                 <div class="code-block mb-6">
-                    <p>Example: <code class="code-block inline-block px-2 py-1 text-sm">!quote-this</code></p>
-                    <p>Example: <code class="code-block inline-block px-2 py-1 text-sm">$balance</code></p>
+                    <p>Example: <code class="code-block inline-block px-2 py-1 text-sm">@Neko Code quote-this</code></p>
+                    <p>Example: <code class="code-block inline-block px-2 py-1 text-sm">@Neko Code balance</code></p>
                 </div>
 
                 <h3 class="text-2xl font-medium text-white mb-3">3. Slash Commands</h3>
