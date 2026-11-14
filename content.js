@@ -68,7 +68,7 @@ const documentationContent = {
 
                 <h3 class="text-2xl font-medium text-white mb-3">2. Bot Prefixes</h3>
                 <p class="text-gray-300 mb-4">
-                    Neko Code's prefix is <strong>not customizable</strong>. The bot uses <strong>@mention</strong> as prefix: <code class="code-block inline-block px-2 py-1 text-sm">!</code>, <code class="code-block inline-block px-2 py-1 text-sm">$</code>, <code class="code-block inline-block px-2 py-1 text-sm">?</code>, <code class="code-block inline-block px-2 py-1 text-sm">></code>.
+                    Neko Code's prefix is <strong>not customizable</strong>. The bot uses <strong>@mention</strong> as prefix.
                 </p>
                 <div class="code-block mb-6">
                     <p>Example: <code class="code-block inline-block px-2 py-1 text-sm">@Neko Code quote-this</code></p>
